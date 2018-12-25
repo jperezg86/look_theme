@@ -7,17 +7,24 @@
 *
 */
 function get_sticky_post_for_home($index){
-	$index--;
+	// $index--;
 	$sticky = get_option( 'sticky_posts' );
-	$args = array(
-		'posts_per_page' => 1,
-		'post__in'  => $sticky,
-		'ignore_sticky_posts' => 1
-	);
-	$query = new WP_Query( $args );
-	if ( isset($sticky[$index]) ) {
-		return $query;
+
+	$itemsToFind = array_slice($sticky,($index * -1),1);
+	if(!empty($itemsToFind)){
+		$args = array(
+			'posts_per_page' => 1,
+			'post__in'  => array_slice($sticky,($index * -1),1),
+			'orderby' => 'date',
+            'order'   => 'DESC',
+			'ignore_sticky_posts' => true
+		);	
+		return new WP_Query($args);
 	}
+	// $query = new WP_Query( $args );
+	// if ( isset($sticky[$index]) ) {
+	// 	return $query;
+	// }
 }
 
 /**
