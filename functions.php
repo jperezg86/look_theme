@@ -63,16 +63,16 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function html5blank_nav()
+function lookliverpool_nav()
 {
 	wp_nav_menu(
 	array(
 		'theme_location'  => 'header-menu',
-		'menu'            => '',
-		'container'       => 'div',
-		'container_class' => 'menu-{menu slug}-container',
+		'menu'            => 'main_menu',
+		'container'       => 'menu',
+		'container_class' => '',
 		'container_id'    => '',
-		'menu_class'      => 'menu',
+		// 'menu_class'      => 'menu',
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
@@ -98,9 +98,16 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_register_script("owl-carousel", get_template_directory_uri() .'/js/owl.carousel.min.js',array('jquery'),'1.0.0');
+        wp_enqueue_script('owl-carousel');
+
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.0.0',true);
+
+        wp_enqueue_script('assets');
+
     }
+
+
 }
 
 // Load HTML5 Blank conditional scripts
@@ -123,6 +130,9 @@ function html5blank_styles()
 
     wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'1.0','all');
     wp_enqueue_style('lookliverpool');
+
+    wp_register_style('google_fonts', "https://fonts.googleapis.com/css?family=Roboto:400,700,800|Montserrat:700,900",array(),'1.0','all');
+    wp_enqueue_style('google_fonts');
 
     wp_register_style('fontawesome', "https://use.fontawesome.com/releases/v5.2.0/css/all.css", array(), '1.0', 'all');
     wp_style_add_data("fontawesome","integrity","sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ");
@@ -409,7 +419,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
+/*function create_post_type_html5()
 {
     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'html5-blank');
@@ -444,7 +454,7 @@ function create_post_type_html5()
             'category'
         ) // Add Category and Post Tags support
     ));
-}
+}*/
 
 /*------------------------------------*\
 	ShortCode Functions
@@ -461,5 +471,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 {
     return '<h2>' . $content . '</h2>';
 }
+
+include('custom_functions.php');
 
 ?>

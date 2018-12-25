@@ -1,18 +1,25 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
+		 <footer>
+		    	<section class="inner">
+		            <section class="social_links">
+		                <a href="#"><i class="fab fa-facebook-f"></i></a>
+		                <a href="#"><i class="fab fa-twitter"></i></a>
+		                <a href="#"><i class="fab fa-instagram"></i></a>
+		            </section>
 
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'lookliverpool'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
+		            <section class="logo">
+		                <a href="#"><img src="<?= get_template_directory_uri() ?>/img/logo.svg" alt="Liverpool"></a>
+		            </section>
 
-			</footer>
-			<!-- /footer -->
-
-		</div>
-		<!-- /wrapper -->
+		            <section class="legal">
+		                <a href="#">Términos y condiciones</a>
+		                <a href="#">Aviso de privacidad</a>
+		            </section>
+		        </section>
+		        <section class="copyright">
+		            2019 Liverpool / Todos los derechos reservados D.R. ®
+		        </section>
+		    </footer>
+		</main>
 
 		<?php wp_footer(); ?>
 

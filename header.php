@@ -24,7 +24,6 @@
 
 	</head>
 	<body <?php body_class(); ?>>
-
 		<section class="go_liverpool">
 		    <section class="inner">
 		        <a href="https://www.liverpool.com.mx" target="_blank">
@@ -32,28 +31,41 @@
 		        </a>
 		    </section>
 		</section>
+		<header>
+		    <section class="inner">   
+		        <a href="<?= home_url(); ?>" class="logo"></a>
+		        <menu>
+		        	<?php lookliverpool_nav(); ?>
+		          <!--   <ul>
+		                <li><a href="#">Noticias</a></li>
+		                <li><a href="#">Moda</a></li>
+		                <li><a href="#">Belleza</a></li>
+		                <li><a href="#">Tecnología</a></li>
+		                <li><a href="#">Fitness</a></li>
+		                <li><a href="#">Casa</a></li>
+		                <li><a href="#">Gourmet</a></li>
+		                <li><a href="#">JOY.tv</a></li>
+		            </ul> -->
+		        </menu>
+		        <a href="#" class="open_nav"><span></span></a>
+		        <a href="#" class="open_search"><span></span></a>
+		    </section>
+		     <form class="search">
+		        <section class="inner">
+		            <input type="text" placeholder="¿Qué estas buscando?">
+		            <button>Ir</button>
+		        </section>
+		    </form>
+		</header>
 
+		<nav>
+		    <a href="#" class="close">
+		    	<span></span>
+		    </a>
+		    <a href="index.html" class="logo">
+		    	<img src="assets/img/logo.svg">
+		    </a>
+		</nav>
 
-		<!-- wrapper -->
-		<div class="wrapper">
-
-			<!-- header -->
-			<header class="header clear" role="banner">
-
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-			</header>
-			<!-- /header -->
+		<!-- main content -->
+		<main>
