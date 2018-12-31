@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
+
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-	<section class="inner note">
+	<section class="inner note video">
 		<section class="share_container">
 		    <span class="share_opener"><i class="fas fa-share"></i></span>
 		    <div class="share">
@@ -33,8 +34,9 @@
 
 
 	    	<figure class="main_img">
-	        	<?= the_post_thumbnail('full'); ?>
+	        	<?php the_field('url_video'); ?>
 	        </figure>   
+
 
 	        <section class="the_content">
 	        	<?= the_content(); ?> 

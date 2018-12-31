@@ -58,14 +58,21 @@ function getMainCategoryWithDetails($fromPostId){
 * @param $limit el tope de posts a devolver por la funcion
 * @return $the_query el query para iterarlo en la view
 **/ 
-function getPostsByCategory($categorySlug, $numberOfPosts){
+function getPostsByCategory($categorySlug, $numberOfPosts, $ignore_sticky_posts = false){
+
 	$args = array(
 		'post_status' => 'publish',
 		'category_name' => $categorySlug,
 		'post_type' => 'post',
-		'ignore_sticky_posts' => true,
+		'ignore_sticky_posts' => 1,
 		'posts_per_page' => $numberOfPosts
 	);
+
+	if($ignore_sticky_posts){
+		$post_to_ignore = get_option('sticky_posts');
+		$args['post__not_in'] = $post_to_ignore;
+		
+	}
 
 	return new WP_Query($args);
 }
@@ -126,5 +133,35 @@ function getRelatedPosts($post, $numberOfPosts){
 	}
 
 	return null;
+}
+
+
+function get_post_gallery_images_with_info($postvar = NULL) {
+    if(!isset($postvar)){
+        global $post;
+        $postvar = $post;//if the param wasnt sent
+    }
+
+
+    $post_content = $postvar->post_content;
+    preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
+    $images_id = explode(",", $ids[1]); //we get the list of IDs of the gallery as an Array
+
+
+    $image_gallery_with_info = array();
+    //we get the info for each ID
+    foreach ($images_id as $image_id) {
+        $attachment = get_post($image_id);
+        array_push($image_gallery_with_info, array(
+            'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
+            'caption' => $attachment->post_excerpt,
+            'description' => $attachment->post_content,
+            'href' => get_permalink($attachment->ID),
+            'src' => $attachment->guid,
+            'title' => $attachment->post_title
+                )
+        );
+    }
+    return $image_gallery_with_info;
 }
 ?>

@@ -56,7 +56,7 @@ if (function_exists('add_theme_support'))
 
     // Localisation Support
     load_theme_textdomain('lookliverpool', get_template_directory() . '/languages');
-    add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'video' ) );
+    add_theme_support( 'post-formats', array('gallery', 'image', 'video' ) );
 }
 
 /*------------------------------------*\
@@ -481,6 +481,66 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
+function use_post_format_templates_27425( $template ) {
+    if ( is_single() && has_post_format() ) {
+        $post_format_template = locate_template( 'single-' . get_post_format() . '.php' );
+        if ( $post_format_template ) {
+            $template = $post_format_template;
+        }
+    }
+
+    return $template;
+}   
+add_filter( 'template_include', 'use_post_format_templates_27425' );
+
+
+
+/**
+ * A get_post_gallery() polyfill for Gutenberg
+ *
+ * @param string $gallery The current gallery html that may have already been found (through shortcodes).
+ * @param int $post The post id.
+ * @return string The gallery html.
+ */
+function bm_get_post_gallery( $gallery, $post ) {
+    // Already found a gallery so lets quit.
+    if ( $gallery ) {
+        return $gallery;
+    }
+    // Check the post exists.
+    $post = get_post( $post );
+    if ( ! $post ) {
+        return $gallery;
+    }
+    // Not using Gutenberg so let's quit.
+    if ( ! function_exists( 'has_blocks' ) ) {
+        return $gallery;
+    }
+    // Not using blocks so let's quit.
+    if ( ! has_blocks( $post->post_content ) ) {
+        return $gallery;
+    }
+    /**
+     * Search for gallery blocks and then, if found, return the html from the
+     * first gallery block.
+     *
+     * Thanks to Gabor for help with the regex:
+     * https://twitter.com/javorszky/status/1043785500564381696.
+     */
+    $pattern = "/<!--\ wp:gallery.*-->([\s\S]*?)<!--\ \/wp:gallery -->/i";
+    preg_match_all( $pattern, $post->post_content, $the_galleries );
+    // Check a gallery was found and if so change the gallery html.
+    if ( ! empty( $the_galleries[1] ) ) {
+        $gallery = reset( $the_galleries[1] );
+    }
+    return $gallery;
+}
+// add_filter( 'get_post_gallery', 'bm_get_post_gallery', 10, 2 );
+
+
+
 include('custom_functions.php');
+
+
 
 ?>

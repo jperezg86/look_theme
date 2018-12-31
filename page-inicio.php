@@ -36,7 +36,7 @@
     <section class="news_home">
 		<section class="inner">
             <h2 class="nice">Noticias</h2>
-            <?php $noticias_query = getPostsByCategory('noticias', 7);
+            <?php $noticias_query = getPostsByCategory('noticias', 7, true);
              	if($noticias_query -> have_posts()){ ?> 
 		            <section class="list_notes noticias">
 		            	<?php while($noticias_query -> have_posts()){ 
@@ -55,7 +55,7 @@
     <section class="joy_tv">
         <section class="inner">
             <h2 class="nice txt_center">Joy.TV</h2>
-            	<?php $joyTV_query = getPostsByCategory("joy_tv",8);
+            	<?php $joyTV_query = getPostsByCategory("joy_tv",8, true);
             			if ($joyTV_query->have_posts()) { ?> 
 	                <section class="carousel_notes">
 	                	<?php while($joyTV_query->have_posts()){ 
@@ -118,7 +118,7 @@
 
 <section class="inner">
         <h2 class="nice">Moda</h2>
-        <?php $moda_query = getPostsByCategory('moda', 4);
+        <?php $moda_query = getPostsByCategory('moda', 4, true);
              	if($moda_query -> have_posts()){ ?> 
         <section class="list_notes">
 			<?php while($moda_query -> have_posts()){ 
@@ -134,7 +134,7 @@
     <?php } ?>
 
 
-<?php $impresa_query = getPostsByCategory('edicion-impresa', 1); 
+<?php $impresa_query = getPostsByCategory('edicion-impresa', 1, true); 
 	  if($impresa_query->have_posts()) {
 	  	while($impresa_query->have_posts()){
 	  			$impresa_query->the_post();
@@ -159,7 +159,7 @@
 ?>
 
 <h2 class="nice">Tecnología</h2>
-<?php $tecnologia_query = getPostsByCategory('tecnologia', 4);
+<?php $tecnologia_query = getPostsByCategory('tecnologia', 4, true);
  	if($tecnologia_query -> have_posts()){ ?> 
         <section class="list_notes">
         	<?php while($tecnologia_query -> have_posts()){ 
