@@ -2,6 +2,7 @@
 <?php get_header(); ?>
 
 <?php $stickyPost = get_sticky_post_for_home(1);
+	if($stickyPost != null) {
 	  if($stickyPost->have_posts()){ ?> 
 	  		<article class="top_note">
 	  			<?php while($stickyPost->have_posts()){ //loop
@@ -29,7 +30,8 @@
 		</article>
 <?php 
 		wp_reset_postdata();
-		} ?> 
+		} 
+	}?> 
 
     <section class="news_home">
 		<section class="inner">
@@ -77,7 +79,9 @@
         </section>
     </section>
 
-<?php $destacada_query = get_sticky_post_for_home(2);
+<?php
+	 $destacada_query = get_sticky_post_for_home(2);
+	if ($destacada_query !== null) 
 	  if($destacada_query->have_posts()){ ?> 
      <section class="destacado">
         <div class="inner">
@@ -100,11 +104,16 @@
                 	</div>
 	    	 	</a>
     	 	<?php 
-    	 	 		wp_reset_postdata();
-    			} ?> 
+    			}
+    			wp_reset_postdata(); ?> 
         </div>
     </section>
-<?php  } //end if ?> 
+
+<?php  
+		} 
+	// } 
+?> 
+
 
 
 <section class="inner">
@@ -197,4 +206,13 @@
 		    </section>
 		<?php } ?>
 <?php  } ?>
+
+
+<?php  
+	//se inserta widget de suscribete al news
+	get_template_part("code_snippets/code_widget_news"); 
+
+?>
+
+
 <?php get_footer(); ?>

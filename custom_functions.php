@@ -39,6 +39,19 @@ function getFirstCategory($fromPostId){
     return "";
 }
 
+function getMainCategoryWithDetails($fromPostId){
+	$categories = get_the_category( $fromPostId);
+	$categoryArr = array();
+    foreach($categories as $category){
+    	if($category->category_parent == 0){
+			$categoryArr["name"] = $category->name;
+			$categoryArr["permalink"] = get_category_link($category);   		
+    	}
+    }
+   	return $categoryArr;
+
+}
+
 /**
 * obtiene N post por categoría
 * @param $categorySlug el slug de las categorías a buscar
@@ -55,5 +68,63 @@ function getPostsByCategory($categorySlug, $numberOfPosts){
 	);
 
 	return new WP_Query($args);
+}
+
+
+/**
+* formatea el excerpt para remover los tags html que wordpress agrega por default
+* util cuando un post no tiene excerpt y quieres pintarlo de modo custom en el view
+*/
+function stripExcerpt($naturalExcerpt, $limit){
+	$excerpt = substr($naturalExcerpt, 0, $limit). "...";
+    $excerpt = preg_replace('/<a[^>]*(.*?)<\/a>/s', '', $excerpt);
+    return wp_strip_all_tags($excerpt);
+}
+
+/**
+* obtiene los N posts mas recientes a partir de un offset
+* que pertenecen a la categoría proporcionada por el parametro
+* ordenador por fecha de edicion
+* @param $byCategory el slug de la categoría a buscar
+* @param $postQuantity (opcional) la cantidad de posts a devolver, por default 8
+* @param $offset (opcional) el inicio desde donde empezará a contar los resultados, default no offset.
+**/
+function getPosts($byCategory, $postQuantity = 18, $offset=0){
+	$args = array(
+		"category_name" => $byCategory,
+		"orderby" =>  "modified",
+		"type" => "post",
+		"post_status" => "publish",
+		"posts_per_page" => $postQuantity
+	);
+
+	if($offset > 0){
+		$args["offset"] = $offset;
+	}
+	return new WP_Query($args);
+}
+
+
+/**
+* Obtiene los N articulos relacionados de un posts
+* @param $post (Object) post del que se obtendran las relacionadas
+* @param $numberOfPosts numero de post relacionados a devolver
+* @return el query de los posts relacionados o null en su defecto (si no se encontraron relacionados por tags)
+**/
+function getRelatedPosts($post, $numberOfPosts){
+	$tags = wp_get_post_tags($post->ID);
+	if ($tags) {
+		$first_tag = $tags[0]->term_id;
+		$args=array(
+			'tag__in' => array($first_tag),
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>$numberOfPosts,
+			'caller_get_posts'=>1
+		);
+
+		return new WP_Query($args);
+	}
+
+	return null;
 }
 ?>

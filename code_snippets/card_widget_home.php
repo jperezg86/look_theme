@@ -10,13 +10,9 @@
 
         <?php if(has_excerpt()){ ?> 
         	<span> <?= get_the_excerpt();?></span>
-    	<?php }else{
-       			$excerpt = get_the_excerpt();
-       			$excerpt = substr($excerpt, 0, 180). "...";
-				$excerpt = preg_replace('/<a[^>]*(.*?)<\/a>/s', '', $excerpt);
-				echo wp_strip_all_tags($excerpt);
-			}
-    	?> 
+    	<?php }else{ ?>
+       			<span><?= stripExcerpt(get_the_excerpt(), 180); ?></span>
+		<?php }	?> 
     <time>
         	<?= the_time("d F Y"); ?>
     	</time>
