@@ -164,4 +164,18 @@ function get_post_gallery_images_with_info($postvar = NULL) {
     }
     return $image_gallery_with_info;
 }
+
+
+function get_more_notes(){
+	$data = ["id" => 1, "title" => "titulo", 'msg' => "algo_mas"];
+	echo json_encode($data);
+	wp_die();
+
+}
+
+
+add_action('wp_ajax_nopriv_get_more_notes', 'get_more_notes');
+add_action('wp_ajax_get_more_notes', 'get_more_notes');
+
+
 ?>

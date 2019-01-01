@@ -97,6 +97,9 @@ function html5blank_header_scripts()
 
         wp_enqueue_script('scripts');
 
+        wp_localize_script('scripts','liverpool_vars',
+            ['ajaxurl'=>admin_url('admin-ajax.php')]);
+
     	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
 
@@ -113,6 +116,15 @@ function html5blank_header_scripts()
 
         wp_enqueue_script('assets');
 
+        // if(is_category()){
+        //      wp_register_script('scripts','categoryId',"abc");
+        //     $categories = get_the_category();
+        //     if(! empty( $categories )){
+        //         wp_register_script('scripts','categoryId',$categories[0]->$term_id);    
+        //     }
+            
+        // }
+
     }
 
 
@@ -120,7 +132,18 @@ function html5blank_header_scripts()
 
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()
-{
+{   
+    if(is_category()){
+        $category = get_the_category();
+        if(!empty($category)){
+           // var_dump($category[0]);
+           wp_localize_script('scripts',"category", array(
+            "id" => $category[0]->term_id,
+            "name" => $category[0]->name));            
+        }
+        
+    }
+
     if (is_page('pagenamehere')) {
         wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
         wp_enqueue_script('scriptname'); // Enqueue it!
@@ -148,8 +171,7 @@ function html5blank_styles()
     wp_enqueue_style("fontawesome");
 
 
-    wp_localize_script('scripts','liverpool_vars',['ajaxurl'=>admin_url('admin-ajax.php')]);
-    wp_localize_script('scripts','liverpool_vars',['item' => 0]);
+    
 
 
 }
