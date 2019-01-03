@@ -13,6 +13,7 @@
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
 		<?php wp_head(); ?>
+		
 		<script>
         // conditionizr.com
         // configure environment tests
@@ -24,14 +25,15 @@
 
 	</head>
 	<body <?php body_class(); ?>>
-		<section class="go_liverpool">
-		    <section class="inner">
-		        <a href="https://www.liverpool.com.mx" target="_blank">
-		            <img src="<?= get_template_directory_uri() ?>/img/liverpool_bco.png" alt="Liverpool">
-		        </a>
-		    </section>
-		</section>
+
 		<header>
+			<section class="go_liverpool">
+			    <section class="inner">
+			        <a href="https://www.liverpool.com.mx" target="_blank">
+			            <img src="<?= get_template_directory_uri() ?>/img/liverpool_bco.png" alt="Liverpool">
+			        </a>
+			    </section>
+			</section>
 		    <section class="inner">   
 		        <a href="<?= home_url(); ?>" class="logo"></a>
 		        <menu>
@@ -59,12 +61,9 @@
 		</header>
 
 		<nav>
-		    <a href="#" class="close">
-		    	<span></span>
-		    </a>
-		    <a href="index.html" class="logo">
-		    	<img src="assets/img/logo.svg">
-		    </a>
+		    <a href="#" class="close"><span></span></a>
+		    <a href="index.html" class="logo"><img src="<?= get_template_directory_uri() ?>/img/logo.svg"></a>
+		    <a href="https://www.liverpool.com.mx/" target="_blank" class="back_liver"><i class="fas fa-long-arrow-alt-left"></i> Ir a Liverpool.com.mx</a>
 		</nav>
 
 		<!-- main content -->

@@ -1,14 +1,13 @@
 <?php get_header(); ?>
 
+
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+
 	<section class="inner note">
 		<section class="share_container">
-		    <span class="share_opener"><i class="fas fa-share"></i></span>
+		    <span class="share_opener"><i class="fas fa-share-alt"></i></span>
 		    <div class="share">
-		        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-		        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-		        <a href="#" class="pinterest"><i class="fab fa-pinterest"></i></a>
-		        <a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+		        <?php get_template_part("code_snippets/share_articles"); ?> 
 		    </div>
 	    </section>
 
@@ -91,6 +90,6 @@
 	<!-- /article -->
 <?php endif; ?>
 
-</section>
+<!-- </section> -->
 
 <?php get_footer(); ?>

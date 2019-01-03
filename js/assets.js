@@ -192,7 +192,7 @@ $(document).ready(function() {
 				
 				if( $('.share').length ){
 					share = $('.share');
-					start3 = $('.share').offset().top - 75;
+					start3 = $('.share').offset().top - 115;
 					tope3 = ( $('.share').parent().offset().top + $('.share').parent().height() ) - $('.share').height() - 70;
 				}
 				
