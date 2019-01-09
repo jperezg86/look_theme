@@ -52,9 +52,9 @@
 		        <a href="#" class="open_nav"><span></span></a>
 		        <a href="#" class="open_search"><span></span></a>
 		    </section>
-		     <form class="search">
+		     <form method="get" action="<?php echo home_url(); ?>" role="search" class="search">
 		        <section class="inner">
-		            <input type="text" placeholder="¿Qué estas buscando?">
+		            <input type="text" placeholder="¿Qué estas buscando?" name="s">
 		            <button>Ir</button>
 		        </section>
 		    </form>
