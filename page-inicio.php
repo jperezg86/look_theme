@@ -54,8 +54,8 @@
 
     <section class="joy_tv">
         <section class="inner">
-            <h2 class="nice txt_center">Joy.TV</h2>
-            	<?php $joyTV_query = getPostsByCategory("joy_tv",8, true);
+            <h2 class="nice txt_center">Look.TV</h2>
+            	<?php $joyTV_query = getPostsByCategory("look_tv",8, true);
             			if ($joyTV_query->have_posts()) { ?> 
 	                <section class="carousel_notes">
 	                	<?php while($joyTV_query->have_posts()){ 

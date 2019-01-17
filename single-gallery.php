@@ -22,9 +22,11 @@
 	        	 	<?php if(has_excerpt()){ ?> 
 	                           <?= get_the_excerpt();?>
 	                    <?php }else{
-	                            $excerpt = strip_excerpt(get_the_excerpt(), 180);
+	                            $excerpt = stripExcerpt(get_the_excerpt(), 180);
 	                            echo $excerpt;      
 	                          } ?>
+
+
 
 	        	 </h2>
 	        	 <section class="photo_desc">
@@ -44,17 +46,30 @@
         	<section class="inner">
         		<div class="thumbs">
         			<?php 
-        				$images = get_post_gallery_images_with_info();
-        				foreach($images as $image){ ?>
+
+        				$images = get_post_gallery(get_the_ID(),false);
+        				$imagesIds = explode(",",$images['ids']);
+        				$imagesSrcs = $images['src'];
+        				$cont = 0;
+
+        				// var_dump($images['src']);
+        				// $imagesArr = explode(",",$images['ids']);
+        				// print_r($imagesArr[0]);
+        				// $image_object = get_the_excerpt( $imagesArr[0]);
+        				// var_dump($image_object);
+        				foreach($imagesSrcs as $image){ ?>
         					<figure>
-				                <img src="<?=$image['src']; ?>">
+				                <img src="<?=$image ?>">
 				                <section>
 				                    <p>
-				                       <?= $image['']; ?>
+				                       <?= get_the_excerpt($imagesIds[$cont++]); ?>
 				                    </p>
 				                </section>
 				            </figure>
-        		<?php	}
+
+        		<?php	
+        					 
+        					}
         			?>
         		</div>
         	</section>

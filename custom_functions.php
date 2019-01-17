@@ -151,7 +151,7 @@ function get_post_gallery_images_with_info($postvar = NULL) {
     $image_gallery_with_info = array();
     //we get the info for each ID
     foreach ($images_id as $image_id) {
-        $attachment = get_post($image_id);
+        $attachment = get_the_excerpt($image_id);
         array_push($image_gallery_with_info, array(
             'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
             'caption' => $attachment->post_excerpt,
