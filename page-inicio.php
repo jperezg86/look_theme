@@ -63,7 +63,7 @@
 			            ?> 
 	                	<a href="<?= get_the_permalink() ?> " class="card">
 	                        <figure>    
-	                            <?= the_post_thumbnail('medium');?>
+	                            <?= the_post_thumbnail('large');?>
 	                        </figure>
 	                        <div>
 	                            <em><?= getFirstCategory(get_the_ID()); ?></em>
@@ -147,7 +147,7 @@
                            <span>Descargar <i class="fas fa-long-arrow-alt-right"></i></span>
                         </div>
                         <figure>
-                           <?=the_post_thumbnail('medium'); ?>
+                           <?=the_post_thumbnail('large'); ?>
                         </figure>
                     </a>
             <?php  } ?> 

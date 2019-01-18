@@ -2,7 +2,7 @@
         <div class="inner">
             <a href="<?=get_the_permalink(); ?>" class="card">
                 <figure>    
-                    <?= the_post_thumbnail('medium'); ?>
+                    <?= the_post_thumbnail('large'); ?>
                 </figure>
                 <div>
                     <em><?= getFirstCategory(get_the_ID()); ?></em>
