@@ -217,13 +217,21 @@ nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspe
 .newsletter{padding: 60px 0;position:relative;}
 .newsletter:before{width:30%;height:1px;background: #d9dbdc;content:'';display:block;margin: 0 auto 30px;}
 .newsletter article{ width:100%; max-width:600px; margin:0 auto;}
-.newsletter form{margin: 20px 0 40px;box-shadow: 0 0 10px rgba(0,0,0,.1);border-radius: 3px;}
+.newsletter form{margin: 20px 0 40px;box-shadow: 0 0 10px rgba(0,0,0,.1);border-radius: 3px;display: flex;/* overflow: hidden; */position: relative;}
+.newsletter form .es_textbox{padding: 0;width: 100%;}
+.newsletter form .es_button{padding: 0;display: flex;position: relative;background: #e10098;align-items: center;justify-content: center;}
+.newsletter form .es_button:after{content:"\f30b";display:block;position:absolute;color: #fff; font:900 1.2em 'Font Awesome 5 Free'}
+.newsletter form .es_button input{text-indent:-1000%;width: auto!important;background: transparent;}
+.newsletter form .es_msg{position:absolute;left:0;top:100%;padding: 10px;text-align: center;font-size: .8em;}
 .newsletter p{text-align: center;font-size: 1.2em;}
 .newsletter form label{padding: 0;margin: 0;}
 .newsletter form label input{border:none;margin-top: 4px;}
 .newsletter form label button{background:#e10098;color:#fff;width:60px;font-size: 1.2em;}
 .newsletter form label button:hover{ background:#ca0389}
 .newsletter .btn{width: 101%;margin: -4px;}
+.newsletter .es_lablebox{ display:none}
+.es_form_container{ position:relative;}
+
 
 
 /* footer */
@@ -275,7 +283,7 @@ footer .copyright{text-align:center;font-size:.8em;margin: 30px 0 10px;color:#99
 form{}
 form .wrapper{ padding:20px 0}
 form label{overflow:hidden;position:relative;padding: 30px 0px 0;background: #fff;border-radius: 4px;display: flex;margin: 0 1% 10px;}
-form input,form textarea,form select{display:block;width:100%;border:none;height:40px;font: normal 1em 'Roboto', sans-serif;outline:none;border-radius: 0;-webkit-appearance: none;padding: 0 20px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: relative;z-index: 1;background: #fff;}
+form input,form textarea,form select{display:block;width: 100%!important;border:none;height:40px;font: normal 1em 'Roboto', sans-serif;outline:none;border-radius: 0;-webkit-appearance: none;padding: 0 20px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: relative;z-index: 1;background: #fff;}
 form textarea{ height:100px!important}
 form label span{position:absolute;top:0;font-weight: bold;font-size: .7em;padding-bottom: 3px;border-bottom: 1px solid #ddd;padding: 3px 10px;opacity: 1;width: 100%;background: #eee;}
 form label span i{font-style: normal!important;margin-right: 10px;}

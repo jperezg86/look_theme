@@ -80,6 +80,15 @@
 ?> 
 
 
+<?php 
+	/*testAPI
+	$productId = '1034771576';
+	$get_product_data = file_get_contents('https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp?productId='.$productId.'');
+	// $dataProd = json_decode($get_product_data);
+	print_r($get_product_data);*/
+?> 
+
+
 <?php endwhile; ?>
 
 <?php else: ?>

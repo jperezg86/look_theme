@@ -1,9 +1,9 @@
 		 <footer>
 		    	<section class="inner">
 		            <section class="social_links">
-		                <a href="#"><i class="fab fa-facebook-f"></i></a>
-		                <a href="#"><i class="fab fa-twitter"></i></a>
-		                <a href="#"><i class="fab fa-instagram"></i></a>
+		                <a href="https://www.facebook.com/Look-Liverpool-566627920477601/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		                <a href="https://www.instagram.com/lookliverpool/" target="_blank"><i class="fab fa-instagram"></i></a>
+		                <a href="https://www.pinterest.com.mx/lookliverpool27/?eq=look%20liverpool&etslf=12586" target="_blank"><i class="fab fa-pinterest"></i></a>
 		            </section>
 
 		            <section class="logo">

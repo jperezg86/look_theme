@@ -128,6 +128,17 @@ $(document).ready(function() {
 	
 	funResize();
 	
+
+	var socLinks = $('.social_links').clone();
+	var menu = $('header menu').clone();
+
+	//$('nav').append(menu);
+	menu.insertBefore('.back_liver');
+	$('nav').append(socLinks);
+
+	$('#es_txt_email').attr('placeholder','Ingresa tu correo electr'+'\u00F3'+'nico')
+	
+
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === true) {
 		$('html').addClass('mobile');
 		
@@ -136,12 +147,12 @@ $(document).ready(function() {
 			$('main').css('padding-top',headerH);
 		},4000);*/
 		
-		var socLinks = $('.social_links').clone();
-		var menu = $('header menu').clone();
+		// var socLinks = $('.social_links').clone();
+		// var menu = $('header menu').clone();
 
-		//$('nav').append(menu);
-		menu.insertBefore('.back_liver');
-		$('nav').append(socLinks);
+		// //$('nav').append(menu);
+		// menu.insertBefore('.back_liver');
+		// $('nav').append(socLinks);
 
 
 		if( $('.note.carousel').length ){
