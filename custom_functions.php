@@ -120,13 +120,25 @@ function getPosts($byCategory, $postQuantity = 18, $offset=0){
 **/
 function getRelatedPosts($post, $numberOfPosts){
 	$tags = wp_get_post_tags($post->ID);
+	$tagsArray = [];
+	foreach($tags as $tag) {
+		array_push($tagsArray, $tag->term_id);
+	}
 	if ($tags) {
-		$first_tag = $tags[0]->term_id;
+		// $first_tag = $tags[0]->term_id;
 		$args=array(
-			'tag__in' => array($first_tag),
+			// 'tag__in' => array($tagsArray),
 			'post__not_in' => array($post->ID),
 			'posts_per_page'=>$numberOfPosts,
-			'caller_get_posts'=>1
+			'caller_get_posts'=>1,
+			'ignore_sticky_posts' => 1,
+			'orderby' => 'rand',
+			'tax_query' => [
+		        [
+		            'taxonomy' => 'post_tag',
+		            'terms'    => $tagsArray
+		        ]
+		    ]
 		);
 
 		return new WP_Query($args);
