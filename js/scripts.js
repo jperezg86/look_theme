@@ -14,7 +14,7 @@
 					page : category.page++,
 				},
 				success : function(result){
-					console.log(result);
+					// console.log(result);
 					if(result.length == 0){
 						$('.ver_mas').remove();
 						return;	
@@ -40,14 +40,19 @@
 					$([document.documentElement, document.body]).animate({
 				        scrollTop: $('.inner.new:last').offset().top - 80,
 				    },0);
-					$('.loader').remove();
+					
 
 					
 				},
-				error: function(result){
+
+				complete: function(){
+					$('.loader').remove();
+				},
+
+				error: function(result, textStatus){
 					console.log(result);
 					$('.loader').remove();
-					alert('Error');
+					alert(textStatus);
 				}
 			});
 		});

@@ -179,8 +179,8 @@ function get_post_gallery_images_with_info($postvar = NULL) {
 
 
 function get_more_notes(){
-	$categoryId = $_REQUEST['categoryId'];
-	$currentPage = $_REQUEST['page'];
+	$categoryId = absint($_REQUEST['categoryId']);
+	$currentPage =absint($_REQUEST['page']);
 	$postsPerPage = 8;
 	$newOffset = (($currentPage -1 ) * $postsPerPage) + 18;
 
@@ -194,14 +194,12 @@ function get_more_notes(){
 		'offset' => $newOffset
 	);
 
-
-
 	$response = array();
 	$query = new WP_Query($args);
 	// global $post;
 
-	$data = ["id" => $id_category, "newOffset" => $newOffset, 'currentPage' => $currentPage, "results" => $query->post_count];
-
+	// $data = ["id" => $categoryId, "newOffset" => $newOffset, 'currentPage' => $currentPage, "results" => $query->post_count];
+	// echo json_encode($data);
 	if($query->have_posts()){
 		while($query->have_posts()){
 			$query->the_post();
@@ -210,7 +208,7 @@ function get_more_notes(){
 				"id" => get_the_ID(),
 				"title" => get_the_title(),
 				"url" => get_the_permalink(),
-				"excerpt" => $excerpt,
+				"excerpt" => htmlentities($excerpt),
 				"mainCategory" => getFirstCategory(get_the_ID()),
 				"time" => get_the_time("d F Y"),
 				"thumbnail" => get_the_post_thumbnail(get_the_ID(),'large')
