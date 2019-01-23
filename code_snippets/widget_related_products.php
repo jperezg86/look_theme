@@ -2,7 +2,7 @@
         <section class="inner">
             <h3 class="nice">Esta experiencia puede ser tuya</h3>
             <section class="carousel_notes">
-                <a href="https://www.liverpool.com.mx/tienda/pdp/set-de-construcci%C3%B3n-escape-de-grindelwald-lego/1074440904" target="_blank">
+                <!-- <a href="https://www.liverpool.com.mx/tienda/pdp/set-de-construcci%C3%B3n-escape-de-grindelwald-lego/1074440904" target="_blank">
                     <figure>
                         <img src="<?= get_template_directory_uri(); ?>/img/img24.jpg">
                     </figure>
@@ -57,7 +57,7 @@
                     </figure>
                     <strong>Figura Albus Dumbledore POP! Fantastic Beasts: The Crimes of Grindelwald</strong>
                     <span>Comprar</span>
-                </a>
+                </a> -->
             </section>
 
         </section>

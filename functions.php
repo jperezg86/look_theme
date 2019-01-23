@@ -139,10 +139,30 @@ function html5blank_conditional_scripts()
            // var_dump($category[0]);
            wp_localize_script('scripts',"category", array(
             "id" => $category[0]->term_id,
+            "page" => 1,
+            "offset" =>18,
             "name" => $category[0]->name));            
         }
         
     }
+
+    if(is_single()){
+        global $post;
+        wp_localize_script("scripts","is_single",true);
+        $single_vars = [];
+        $related_products = get_field('productos_relacionados', $post->ID);
+        $single_vars["haveRelatedProducts"] = !empty($related_products);
+        if(!empty($related_products)){
+            $single_vars["relatedProducts"] = explode(",",$related_products);
+        }
+
+        $link = get_field("url_sin_articulos",$post->ID);
+        $single_vars['alt_url'] = $link;
+        wp_localize_script("scripts", "singleVars",$single_vars);
+
+    }
+
+
 
     if (is_page('pagenamehere')) {
         wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)

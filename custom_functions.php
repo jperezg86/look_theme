@@ -179,10 +179,49 @@ function get_post_gallery_images_with_info($postvar = NULL) {
 
 
 function get_more_notes(){
-	$data = ["id" => 1, "title" => "titulo", 'msg' => "algo_mas"];
-	echo json_encode($data);
-	wp_die();
+	$categoryId = $_REQUEST['categoryId'];
+	$currentPage = $_REQUEST['page'];
+	$postsPerPage = 8;
+	$newOffset = (($currentPage -1 ) * $postsPerPage) + 18;
 
+	
+
+	$args = array(
+		'post_status' => 'publish',
+		'cat' => $categoryId,
+		'post_type' => 'post',
+		'posts_per_page' => $postsPerPage,
+		'offset' => $newOffset
+	);
+
+
+
+	$response = array();
+	$query = new WP_Query($args);
+	// global $post;
+
+	$data = ["id" => $id_category, "newOffset" => $newOffset, 'currentPage' => $currentPage, "results" => $query->post_count];
+
+	if($query->have_posts()){
+		while($query->have_posts()){
+			$query->the_post();
+			$excerpt = (has_excerpt()) ? get_the_excerpt() : stripExcerpt(get_the_excerpt(), 100);
+			$tmpArray = array(
+				"id" => get_the_ID(),
+				"title" => get_the_title(),
+				"url" => get_the_permalink(),
+				"excerpt" => $excerpt,
+				"mainCategory" => getFirstCategory(get_the_ID()),
+				"time" => get_the_time("d F Y"),
+				"thumbnail" => get_the_post_thumbnail(get_the_ID(),'large')
+			);
+
+			array_push($response,$tmpArray);
+		}
+		wp_reset_postdata();
+	}
+	echo json_encode($response);
+	wp_die();
 }
 
 
