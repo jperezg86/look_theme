@@ -2,11 +2,12 @@
 	
 	$(function () {
 		'use strict';
-		$('.ver_mas').on('click', function(e){
+		$('.ver_mas').click(function(e){
 			e.preventDefault();
 			$.ajax({
 				url : liverpool_vars.ajaxurl,
 				dataType: 'JSON',
+				beforeSend : showLoader(),
 				data : {
 					action : 'get_more_notes',
 					categoryId : category.id,
@@ -18,6 +19,10 @@
 						$('.ver_mas').remove();
 						return;	
 					}
+
+					$('body').append('<section class="inner new"><section class="grid_section"></section></section>');
+					$('.inner.new').insertBefore('.inner.last');
+
 					
 					result.forEach(function(item){
 						var html="<a href='" + item.url +"' class='card'>" + 
@@ -29,17 +34,27 @@
 	        							"<time>"+item.time+"</time>"+
 	        						"</div>"+
 	        					  "</a>";
-	        			$('.news_home .inner .grid_section2').append(html);
+	        			$('.inner.new:last .grid_section:last').append(html);
 					});
 
-					$('.grid_section2').stratum({
-				        padding: 20,
-				        columns: 4
-				    });
+					$([document.documentElement, document.body]).animate({
+				        scrollTop: $('.inner.new:last').offset().top - 80,
+				    },0);
+					$('.loader').remove();
+
+					
+				},
+				error: function(result){
+					console.log(result);
+					$('.loader').remove();
+					alert('Error');
 				}
 			});
 		});
 
+		var showLoader = function(){
+			$('body').append('<i class="fas fa-spinner fa-spin loader"></i>');
+		};
 
 		var printSlider = function(){
 			if(singleVars.products.length > 0){

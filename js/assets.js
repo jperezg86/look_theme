@@ -328,17 +328,17 @@ $(document).ready(function() {
 	
 	//}//sino es galeria
 		
-		if( $('.top_section').length ){
-			$('.grid_section').stratum({
-		        padding: 20,
-		        columns: 4
-		    });
+		// if( $('.top_section').length ){
+		// 	$('.grid_section').stratum({
+		//         padding: 20,
+		//         columns: 4
+		//     });
 
-			$('.grid_section2').stratum({
-		        padding: 20,
-		        columns: 4
-		    });
-		}
+		// 	$('.grid_section2').stratum({
+		//         padding: 20,
+		//         columns: 4
+		//     });
+		// }
 		
 		
 }//eventos desktop

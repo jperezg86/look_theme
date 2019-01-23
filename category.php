@@ -53,19 +53,22 @@
     	if($secondSectionPosts -> have_posts()){  ?>
     		<section class="news_home">
 			    <section class="inner">
-			       	<section class="grid_section2">
+			       	<section class="grid_section">
 						  <?php while($secondSectionPosts -> have_posts()){
 			    					$secondSectionPosts -> the_post(); 
 			    					get_template_part("code_snippets/card_widget_home");
 			            		}
 								wp_reset_postdata(); ?> 
 					</section>
-					   <a href="#" class="ver_mas">Ver más <i class="far fa-plus-square"></i></a>
 			    </section>
 			</section>
-<?php
- 		} 
+		
+<?php }  ?>
 
+		<section class="inner last">
+			<a href="#" class="ver_mas">Ver más <i class="far fa-plus-square"></i></a>
+		</section>
+<?php
  		get_template_part("code_snippets/code_widget_news");
 ?> 
 
