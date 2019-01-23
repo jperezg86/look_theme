@@ -658,34 +658,34 @@ $(document).ready(function() {
 	
 	
 	
-	$(".carousel_notes").owlCarousel({
-		items:4,
-		margin:25,
-		stagePadding:0,
-		autoplay:false,
-		smartSpeed:450,
-		loop:true,
-		mouseDrag:true,
-		nav:true,
-		dots:true,
-		//navText : ['<i class="fas fa-long-arrow-alt-left"></i>','<i class="fas fa-long-arrow-alt-right"></i>'],
-		navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-		responsive : {
-		    0 : {
-		    	items:1,
-		    	margin:0
-		    },
-		    500 : {
-		    	item:3
-		    },
-		    768 : {
-		    	items:4
-		    },
-		    1000 : {
-		    	items:4
-		    }
-		}
-	});
+	// $(".carousel_notes").owlCarousel({
+	// 	items:4,
+	// 	margin:25,
+	// 	stagePadding:0,
+	// 	autoplay:false,
+	// 	smartSpeed:450,
+	// 	loop:true,
+	// 	mouseDrag:true,
+	// 	nav:true,
+	// 	dots:true,
+	// 	//navText : ['<i class="fas fa-long-arrow-alt-left"></i>','<i class="fas fa-long-arrow-alt-right"></i>'],
+	// 	navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+	// 	responsive : {
+	// 	    0 : {
+	// 	    	items:1,
+	// 	    	margin:0
+	// 	    },
+	// 	    500 : {
+	// 	    	item:3
+	// 	    },
+	// 	    768 : {
+	// 	    	items:4
+	// 	    },
+	// 	    1000 : {
+	// 	    	items:4
+	// 	    }
+	// 	}
+	// });
 
 	
 	

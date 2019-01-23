@@ -95,12 +95,11 @@ function html5blank_header_scripts()
 
         wp_deregister_script('jquery');
 
-        wp_register_script( 'jquerymin', get_template_directory_uri().'/js/jquery.min.js', array(), '2.1.3' ,true); /* TRUE Es para agregarlo al footer */
-        wp_enqueue_script('jquerymin');
+        wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery.min.js', array(), '2.1.3' ); /* TRUE Es para agregarlo al footer */
+        wp_enqueue_script('jquery');
 
-        wp_register_script('scripts', get_template_directory_uri() .'/js/scripts.js', array('jquerymin'),'1.0.0');
+        wp_register_script('scripts', get_template_directory_uri() .'/js/scripts.js', array('jquery'),'1.0.0');
         wp_enqueue_script('scripts');
-
 
         wp_localize_script('scripts','liverpool_vars',['ajaxurl'=>admin_url('admin-ajax.php')]);
 
@@ -110,13 +109,13 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script("owl-carousel", get_template_directory_uri() .'/js/owl.carousel.min.js',array('jquerymin'),'1.0.0');
+        wp_register_script("owl-carousel", get_template_directory_uri() .'/js/owl.carousel.min.js',array('jquery'),'1.0.0');
         wp_enqueue_script('owl-carousel');
 
-        wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquerymin'), '1.0.0');
-        wp_enqueue_script('stratum');
+        // wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquery'), '1.0.0');
+        // wp_enqueue_script('stratum');
 
-        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquerymin'),'1.1.0',true);
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.0');
         wp_enqueue_script('assets');
 
         // if(is_category()){
@@ -176,13 +175,13 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
+    // wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
+    // wp_enqueue_style('normalize'); // Enqueue it!
 
     // wp_register_style('base_style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     // wp_enqueue_style('lookliverpool'); // Enqueue it!
 
-    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'1.1.1','all');
+    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'1.1.3','all');
     wp_enqueue_style('lookliverpool');
 
     wp_register_style('google_fonts', "https://fonts.googleapis.com/css?family=Roboto:400,700,800|Montserrat:700,900",array(),'1.0','all');
