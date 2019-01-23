@@ -737,8 +737,9 @@ nav .social_links a{height: 60px;line-height: 60px;color: #333;width: 60px;}
 .top_section .card div{ margin:-40px 10px; padding:20px;}
 .top_section .card figure{ padding:0 0 60%}
 
-.grid_section .card{ margin-bottom:30px}
-.grid_section_new .card{width:100%;margin: 0 0 30px;}
+.grid_section .card{margin-bottom:30px;width: 100%;}
+.grid_section .card:nth-child(2),.grid_section .card:nth-child(3){ width:48%}
+
 }
 
 
