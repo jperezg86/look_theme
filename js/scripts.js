@@ -128,9 +128,9 @@
 			var wsBase = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp";
 			var onSuccess = function(data,textStatus,jqXHR){
 				console.log(data);
-				// if(status.statusCode === 1){
-				// 	singleVars.products.append(data);
-				// }
+				if(status.statusCode === 1){
+					singleVars.products.append(data);
+				}
 			};
 
 			var onComplete = function(jqXHR, textStatus){

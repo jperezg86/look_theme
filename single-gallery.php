@@ -47,23 +47,16 @@
         	<section class="inner">
         		<div class="thumbs">
         			<?php 
-
         				$images = get_post_gallery(get_the_ID(),false);
         				$imagesIds = explode(",",$images['ids']);
-        				$imagesSrcs = $images['src'];
-        				$cont = 0;
-
-        				// var_dump($images['src']);
-        				// $imagesArr = explode(",",$images['ids']);
-        				// print_r($imagesArr[0]);
-        				// $image_object = get_the_excerpt( $imagesArr[0]);
-        				// var_dump($image_object);
-        				foreach($imagesSrcs as $image){ ?>
+        				foreach($imagesIds as $imageId){ 
+        					$image = get_post($imageId);
+        					?>
         					<figure>
-				                <img src="<?=$image ?>">
+				                <img src="<?= $image->guid; ?>">
 				                <section>
 				                    <p>
-				                       <?= get_the_excerpt($imagesIds[$cont++]); ?>
+				                       <?= $image->post_content;?>
 				                    </p>
 				                </section>
 				            </figure>
