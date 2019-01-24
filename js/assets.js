@@ -133,7 +133,7 @@ $(document).ready(function() {
 	var menu = $('header menu').clone();
 
 	//$('nav').append(menu);
-	menu.insertBefore('.back_liver');
+	menu.appendTo('nav');
 	$('nav').append(socLinks);
 
 	$('#es_txt_email').attr('placeholder','Ingresa tu correo electr'+'\u00F3'+'nico')
@@ -612,6 +612,7 @@ $(document).ready(function() {
 				lightboxSpeed: 600,
 				showOverlay:true,
 				closeClick: true,
+				closeSelector: '.close',
 				destroyOnClose: true,
 				overlayCSS: {background: '#000', opacity: 0.7},
 				onLoad: function() {
@@ -640,6 +641,7 @@ $(document).ready(function() {
 				showOverlay:true,
 				closeClick: true,
 				destroyOnClose: true,
+				closeSelector: '.close',
 				overlayCSS: {background: '#000', opacity: 0.7},
 				onLoad: function() {
 					$('.lb_overlay').addClass('mause');
@@ -658,7 +660,7 @@ $(document).ready(function() {
 	
 	
 	
-	$(".joy_tv .carousel_notes").owlCarousel({
+	$(".carousel_notes").owlCarousel({
 		items:4,
 		margin:25,
 		stagePadding:0,
@@ -730,17 +732,31 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.back').click(function(e){
+		e.preventDefault();
+		history.go(-1);
+	});
+
 	
 	$('.open_nav').click(function(e){
 		e.preventDefault();
-		$('nav').addClass('open');
+		if( $(this).hasClass('active') ){
+			$(this).removeClass('active');
+			$('nav').removeClass('open');
+			$('header').removeClass('open');
+		}
+		else{
+			$(this).addClass('active');
+			$('nav').addClass('open');
+			$('header').addClass('open');	
+		}
 	});
 
-	$('nav .close').click(function(e){
-		e.preventDefault();
-		$('.envelope').removeClass('show');
-		$('nav').removeClass('open');
-	});
+	// $('nav .close').click(function(e){
+	// 	e.preventDefault();
+	// 	$('.envelope').removeClass('show');
+	// 	$('nav').removeClass('open');
+	// });
 
 	
 	$('.envelope').click(function(e){

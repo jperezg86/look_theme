@@ -133,7 +133,7 @@ header.hide{opacity:0;}
 
 
 
-nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 0;height: 100%;transition: .6s;transform: translate3d(0,0px,0) rotate(0deg) perspective(32px) rotateY(-1deg);opacity: 0;}
+nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 90px;height: calc(100% - 90px);transition: .6s;transform: translate3d(0,0px,0) rotate(0deg) perspective(32px) rotateY(-1deg);opacity: 0;}
 nav .logo{width: 170px;display: block;height: 50px;margin: 0 0 20px;}
 nav .logo img{width:100%;height: 100%;object-fit: contain;object-position: left center;}
 nav .back_liver{display:block;line-height:40px;padding: 0px 15px;background: #ffffff;border-bottom: 1px solid #ddd;text-transform: uppercase;}
@@ -159,15 +159,15 @@ nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspe
 .open_search{text-align: center;padding-top: 0;transition: initial;display: flex;align-items: center;justify-items: right;width: 40px;height: 40px;}
 .open_search span{display:block;height: 40px;width: 40px;transition: 0.3s;position: relative;transform: rotate(-135deg) scale(.6);margin: 0;padding: 0;}
 .open_search span:before,.open_search span:after {display: inline-block;height: 30px;width: 30px;border-radius: 10em;transition: 0s;background: transparent;content: '';position: absolute;width: 18px;top: 0;bottom: 0;margin: auto;}
-.open_search span:before {height: 4px;left: -1px;background: #e10098;width: 17px;}
-.open_search span:after {right: 0;background: transparent;border-radius: 50%;width: 20px;height: 20px;border: 4px solid #e10098;-webkit-transform-origin: 50% 50%;transform-origin: 50% 50%;}
+.open_search span:before {height: 4px;left: -1px;background: #666;width: 17px;}
+.open_search span:after {right: 0;background: transparent;border-radius: 50%;width: 20px;height: 20px;border: 4px solid #666;-webkit-transform-origin: 50% 50%;transform-origin: 50% 50%;}
 .open_search.active span:before, .open_search.active span:after {border-radius: 0;background: #e10098;width: 100%;}
 .open_search.active span:after {height: 4px;width: 100%;top: 0px;right: 0px;border: 0;left: 0;-webkit-transform: rotate3d(0, 0, 1, 90deg);transform: rotate3d(0, 0, 1, 90deg);}
 .open_search.active {-webkit-transform: scale3d(0.8, 0.8, 0.8);transform: scale3d(0.9, 0.9, 0.9);}
 
 
 .open_nav{width: 40px;height: -webkit-fill-available;text-align: center;display: block;display: none;height: 40px;align-items: center;justify-content: center;}
-.open_nav span, .open_nav span:before, .open_nav span:after {cursor: pointer;height: 3px;width: 27px;background: #e10098;position: absolute;display: block;content: '';}
+.open_nav span, .open_nav span:before, .open_nav span:after {cursor: pointer;height: 3px;width: 27px;background: #666;position: absolute;display: block;content: '';}
 .open_nav span{width: 22px;transform: scale(.8);}
 .open_nav span:before {top: -10px;}
 .open_nav span:after {bottom: -10px;}
@@ -493,6 +493,7 @@ aside .list_notes b{ font-size:.7em;}
 .gallery .text h1{ text-align:left; width:100%;}
 .gallery .text h2{ text-align:left; width:100%;}
 .gallery .breadcrumbs{ justify-content:left;}
+.gallery .info_note div{ text-align:left}
 .gallery .photo_desc{font-size:.9em;margin-top: 40px;}
 
 
@@ -506,7 +507,7 @@ aside .list_notes b{ font-size:.7em;}
 .thumbs figure section{ display:none;}
 .thumbs .owl-item{ opacity:.4; cursor:pointer;}
 .thumbs .owl-item.view{opacity:1;border: 4px solid #e10098;}
-.thumbs .owl-prev,.thumbs .owl-next{ background:none; color:#e10098; box-shadow:none; font-size:2em;}
+.thumbs .owl-prev,.thumbs .owl-next{background:none;color: #666;box-shadow:none;font-size:2em;}
 .thumbs .owl-prev{ left:-40px}
 .thumbs .owl-next{right:-40px}
 
@@ -525,6 +526,8 @@ aside .list_notes b{ font-size:.7em;}
 
 .info_note{padding:0;margin: 30px 0;text-align: center;font-size: .9em;letter-spacing: .2em;text-transform: uppercase;color: #aaa;width: 100%;}
 .info_note div{ margin:0;}
+.info_note div.author{ margin:0 0 10px; letter-spacing:normal; color:#444;}
+.info_note div.author span{ font-weight:bold}
 
 .main_img{width:100%; margin:0 0 20px}
 .main_img img{ display:block}
@@ -567,9 +570,11 @@ img.expanded{width:auto;position: fixed!important;top: 1%!important;bottom: 10%!
 /* mobile portrait */
 @media only screen and (max-width: 799px) {
     
-.go_liverpool a{padding: 3px 0;}
-.go_liverpool a img{ width:90px}
+.go_liverpool{height:40px;}    
+.go_liverpool a{padding: 0;margin: 0 auto;width: 130px;height: 40px;position: relative;}
+.go_liverpool a img{width: 100%;height: 100%;object-fit: contain;padding: 5px;}
 
+.go_liverpool a.back{ position:absolute;left:5px; width:40px; height:40px; background:url(../img/back.svg) no-repeat center/20px;text-indent:-1000px;}
 
 .col_aside,.col_2,.col_3,.col_3f{width: 96%;}
 
@@ -586,18 +591,23 @@ aside,.nota aside{width:100%;display:block;margin:10px 0;background: #fff;paddin
 
 main{padding: 0;}
 main.galView{overflow:auto;padding-top: 50px;position: relative;bottom: inherit;}
+
+
 header{box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);}
-header menu{ display:none;}
+header menu{display:none;position: fixed;top: 50px;}
 header > .inner{width: 100%;overflow: visible;height: 50px;padding: 0;justify-content: inherit;flex-wrap: nowrap;}
-header .logo,header.fixed .logo{width: 170px;margin: 0 0 0 10px;position: relative;height: 50px;top: inherit;}
+header .logo,header.fixed .logo{width: 170px;margin: 0 auto 0;position: relative;height: 50px;top: inherit;background-position: center;}
 header.fixed.forGal .logo{ height:30px}
 header form .inner{height:40px;padding: 0;width: 92%;}
+
+header.open{position:fixed;margin: 0;box-shadow: 0 10px 20px rgba(0,0,0,.2);animation: hfix .5s ease;}
+header.open .open_search{opacity:0}
 
 
 .owl-dots .owl-dot{width:12px; height:12px}
 
 .open_search {position: absolute;right: 10px;}
-.open_nav{display: flex;position: absolute;right: 60px;}
+.open_nav{display: flex;position: absolute;left: 5px;}
 
 footer .inner{ justify-content:center;}
 footer .logo{position: inherit;margin: 30px;width: 100%;padding: 0 25%;}
@@ -729,12 +739,12 @@ nav .social_links{position: absolute;bottom: 0;top: initial;margin: 0;width: 100
 nav .social_links:before{ content:'SIGUENOS'; position:absolute; top:-20px; width:100%; text-align:center; color:#fff; line-height:20px}
 nav .social_links a{height: 60px;line-height: 60px;color: #333;width: 60px;}
 
-
 .top_landing{ padding:30px 0;}
 .top_landing h1{font-size:2em;margin-top: 20px;}
 .top_landing h2{ font-size:1.1em}
 
-.top_section .card div{ margin:-40px 10px; padding:20px;}
+.top_section .card div{margin:-40px 10px;padding: 5px 10px;}
+.top_section .card strong{line-height:1.3em; font-size:1.5em}
 .top_section .card figure{ padding:0 0 60%}
 
 .grid_section .card{margin-bottom:30px;width: 100%;}

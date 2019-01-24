@@ -27,6 +27,7 @@
 			  <?php } ?>
 
 			<section class="info_note">
+				<?php get_template_part("code_snippets/author"); ?> 
 	            <div><?= the_time("d F Y"); ?></div>
 	        </section>
 
@@ -35,8 +36,7 @@
 	        	<?php the_field('url_video'); ?>
 	        </figure>   
 
-	        
-	         <?php get_template_part("code_snippets/author"); ?> 
+	   
 
 	        <section class="the_content">
 	        	<?= the_content(); ?> 

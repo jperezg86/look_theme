@@ -26,7 +26,10 @@
 				      </h2>
 			  <?php } ?>
 
+
+
 			<section class="info_note">
+	        	<?php get_template_part("code_snippets/author"); ?> 
 	            <div><?= the_time("d F Y"); ?></div>
 	        </section>
 
@@ -36,7 +39,6 @@
 	        </figure> 
 
 
-	        <?php get_template_part("code_snippets/author"); ?> 
 	        <!-- <p class="author">
 	        	<?php
 	        		$author_alternativo = get_field("autor_alternativo");
