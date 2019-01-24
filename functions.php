@@ -112,10 +112,13 @@ function html5blank_header_scripts()
         wp_register_script("owl-carousel", get_template_directory_uri() .'/js/owl.carousel.min.js',array('jquery'),'1.0.0');
         wp_enqueue_script('owl-carousel');
 
+        wp_register_script("lightbox", get_template_directory_uri() .'/js/jquery.lightbox_me.js',array('jquery'),'1.0.0');
+        wp_enqueue_script('lightbox');
+
         // wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquery'), '1.0.0');
         // wp_enqueue_script('stratum');
 
-        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.0');
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.1');
         wp_enqueue_script('assets');
 
         // if(is_category()){

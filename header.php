@@ -61,9 +61,9 @@
 		</header>
 
 		<nav>
-		    <a href="#" class="close"><span></span></a>
+		    <!-- <a href="#" class="close"><span></span></a>
 		    <a href="index.html" class="logo"><img src="<?= get_template_directory_uri() ?>/img/logo.svg"></a>
-		    <a href="https://www.liverpool.com.mx/" target="_blank" class="back_liver"><i class="fas fa-long-arrow-alt-left"></i> Ir a Liverpool.com.mx</a>
+		    <a href="https://www.liverpool.com.mx/" target="_blank" class="back_liver"><i class="fas fa-long-arrow-alt-left"></i> Ir a Liverpool.com.mx</a> -->
 		</nav>
 
 		<!-- main content -->

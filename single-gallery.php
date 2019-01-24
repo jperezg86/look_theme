@@ -17,6 +17,13 @@
 	            		<?= $categoryArr['name']; ?>
 	            	</a>
 	        	</div>
+
+	        	<section class="info_note">
+		        	<?php get_template_part("code_snippets/author"); ?> 
+		            <div><?= the_time("d F Y"); ?></div>
+		        </section>
+
+
 	        	<h1><?= get_the_title(); ?></h1>
 	        	 <h2 class="introtext">
 	        	 	<?php if(has_excerpt()){ ?> 
@@ -29,7 +36,7 @@
 
 
 	        	 </h2>
-	        	  <?php get_template_part("code_snippets/author"); ?> 
+	        	 
 	        	 <section class="photo_desc">
 	             </section>
         	</article> <!-- text -->
