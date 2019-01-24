@@ -732,6 +732,11 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.back').click(function(e){
+		e.preventDefault();
+		history.go(-1);
+	});
+
 	
 	$('.open_nav').click(function(e){
 		e.preventDefault();

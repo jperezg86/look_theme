@@ -574,6 +574,7 @@ img.expanded{width:auto;position: fixed!important;top: 1%!important;bottom: 10%!
 .go_liverpool a{padding: 0;margin: 0 auto;width: 130px;height: 40px;position: relative;}
 .go_liverpool a img{width: 100%;height: 100%;object-fit: contain;padding: 5px;}
 
+.go_liverpool a.back{ position:absolute;left:5px; width:40px; height:40px; background:url(../img/back.svg) no-repeat center/20px;text-indent:-1000px;}
 
 .col_aside,.col_2,.col_3,.col_3f{width: 96%;}
 

@@ -29,6 +29,27 @@
 		<header>
 			<section class="go_liverpool">
 			    <section class="inner">
+
+
+<?php
+	if( wp_is_mobile() ){
+	    if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+	        if(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
+	            $back = $_SERVER['HTTP_REFERER'];
+	            $frase = "Volver al art&iacute;culo";
+	            echo '<a href="#" class="back"><span>'.$frase.'</span></a>';
+	        } else {
+	            // $back = esc_url( home_url( '/' ) ); 
+	            // $frase = "Ir a la portada";                     
+	        }
+	    } else {
+	        // $back = esc_url( home_url( '/' ) ); 
+	        // $frase = "Ir a la portada";  
+	    }
+	    
+    }
+?>
+
 			        <a href="https://www.liverpool.com.mx" target="_blank">
 			            <img src="<?= get_template_directory_uri() ?>/img/liverpool_bco.png" alt="Liverpool">
 			        </a>
