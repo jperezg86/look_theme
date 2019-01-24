@@ -127,9 +127,10 @@
 			var productId = singleVars.relatedProducts[count];
 			var wsBase = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp";
 			var onSuccess = function(data,textStatus,jqXHR){
-				if(status.statusCode === 1){
-					singleVars.products.append(data);
-				}
+				console.log(data);
+				// if(status.statusCode === 1){
+				// 	singleVars.products.append(data);
+				// }
 			};
 
 			var onComplete = function(jqXHR, textStatus){
@@ -144,13 +145,14 @@
 
 			var config = {
 				data : {
+					action : 'get_info_product',
 					productId : productId	
 				},
 				success : onSuccess,
-				complete : onComplete
+				complete : onComplete,
+				dataType : 'json'
 			}
-
-			$.ajax(wsBase,config);
+			$.ajax(liverpool_vars.ajaxurl,config);
 		}
 
 

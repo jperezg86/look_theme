@@ -35,6 +35,8 @@
 	        	<?php the_field('url_video'); ?>
 	        </figure>   
 
+	        
+	         <?php get_template_part("code_snippets/author"); ?> 
 
 	        <section class="the_content">
 	        	<?= the_content(); ?> 

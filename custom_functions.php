@@ -184,8 +184,6 @@ function get_more_notes(){
 	$postsPerPage = 8;
 	$newOffset = (($currentPage -1 ) * $postsPerPage) + 18;
 
-	
-
 	$args = array(
 		'post_status' => 'publish',
 		'cat' => $categoryId,
@@ -196,10 +194,6 @@ function get_more_notes(){
 
 	$response = array();
 	$query = new WP_Query($args);
-	// global $post;
-
-	// $data = ["id" => $categoryId, "newOffset" => $newOffset, 'currentPage' => $currentPage, "results" => $query->post_count];
-	// echo json_encode($data);
 	if($query->have_posts()){
 		while($query->have_posts()){
 			$query->the_post();
@@ -223,8 +217,24 @@ function get_more_notes(){
 }
 
 
+function get_info_product(){
+	$productId = $_REQUEST['productId'];
+	$baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp?productId=".$productId;
+	// echo $baseURL;
+	$content = file_get_contents($baseURL);
+	$array = json_decode($content,true);
+	$array['longDescription'] = htmlentities($array['longDescription']);
+	echo json_encode($array);
+	// $response=array("name" => "Juanito Johns", "title" => "my title");
+	// echo json_encode($response);
+	wp_die();
+}
+
+
 add_action('wp_ajax_nopriv_get_more_notes', 'get_more_notes');
 add_action('wp_ajax_get_more_notes', 'get_more_notes');
+add_action('wp_ajax_nopriv_get_info_product','get_info_product');
+add_action('wp_ajax_get_info_product', 'get_info_product');
 
 
 ?>

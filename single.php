@@ -33,7 +33,17 @@
 
 	    	<figure class="main_img">
 	        	<?= the_post_thumbnail('full'); ?>
-	        </figure>   
+	        </figure> 
+
+
+	        <?php get_template_part("code_snippets/author"); ?> 
+	        <!-- <p class="author">
+	        	<?php
+	        		$author_alternativo = get_field("autor_alternativo");
+	        		$author= empty($author_alternativo) ? get_the_author() : $author_alternativo;
+	        	 ?>	
+	        	 Por: <span><?=$author;?></span>
+	        </p> -->
 
 	        <section class="the_content">
 	        	<?= the_content(); ?> 

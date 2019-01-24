@@ -29,6 +29,7 @@
 
 
 	        	 </h2>
+	        	  <?php get_template_part("code_snippets/author"); ?> 
 	        	 <section class="photo_desc">
 	             </section>
         	</article> <!-- text -->
