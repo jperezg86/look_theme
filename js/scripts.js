@@ -63,7 +63,7 @@
 
 		var printSlider = function(){
 			if(singleVars.products.length > 0){
-				singleVars.forEach(function(item, index){
+				singleVars.products.forEach(function(item, index){
 					item = item.productInfo;
 					var urlTienda = "https://www.liverpool.com.mx/tienda/pdp/"+item.productId;
 					var html = "<a href='"+ urlTienda +"' target='_blank'>"+
@@ -125,11 +125,11 @@
 
 		var getProducts = function(count){
 			var productId = singleVars.relatedProducts[count];
-			var wsBase = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp";
+			// var wsBase = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp";
 			var onSuccess = function(data,textStatus,jqXHR){
 				console.log(data);
-				if(status.statusCode === 1){
-					singleVars.products.append(data);
+				if(data.status.status.localeCompare("OK") == 0){
+					singleVars.products.push(data);
 				}
 			};
 
@@ -146,7 +146,7 @@
 			var config = {
 				data : {
 					action : 'get_info_product',
-					productId : productId	
+					productId : productId.trim()	
 				},
 				success : onSuccess,
 				complete : onComplete,
