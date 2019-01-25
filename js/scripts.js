@@ -63,20 +63,34 @@
 
 		var printSlider = function(){
 			if(singleVars.products.length > 0){
+
+
+				var carousel_notes = '<section class="carousel_notes"></section>';
+				$('.experiencia .inner').append(carousel_notes);
+
 				singleVars.products.forEach(function(item, index){
 					item = item.productInfo;
 					var urlTienda = "https://www.liverpool.com.mx/tienda/pdp/"+item.productId;
 					var html = "<a href='"+ urlTienda +"' target='_blank'>"+
 			                    "<figure>"+
-			                        "<img src="+ item.images.xl +">"+
+			                        "<img src="+ item.images.lg +">"+
 			                    "</figure>"+
 			                    "<strong>"+item.displayName+"</strong>"+
 			                    "<span>Comprar</span>"+
 			                "</a>";
-					$('.carousel_notes').append(html); 
+					$('.carousel_notes').append(html);
 				});
 
-				$(".carousel_notes").owlCarousel({
+				//console.log('exe');
+
+				var carousel = $(".carousel_notes")
+
+
+				var removeLoader = function(){
+					$('.loader_carousel').remove();
+				};
+
+				carousel.owlCarousel({
 					items:4,
 					margin:25,
 					stagePadding:0,
@@ -86,7 +100,6 @@
 					mouseDrag:true,
 					nav:true,
 					dots:true,
-					//navText : ['<i class="fas fa-long-arrow-alt-left"></i>','<i class="fas fa-long-arrow-alt-right"></i>'],
 					navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
 					responsive : {
 					    0 : {
@@ -102,8 +115,13 @@
 					    1000 : {
 					    	items:4
 					    }
-					}
+					},
+					afterInit: removeLoader(),
 				});
+				// carousel.on('initilize.owl.carousel', function(event) {
+				// 	console.log('asd');
+				    
+				// })
 			}else{
 				//si no hay productos pero tiene url alternativa la pinta
 				pintaURLAlternativa();
@@ -114,10 +132,13 @@
 		var pintaURLAlternativa = function(){
 			if(singleVars.alt_url){
 					$('.experiencia .carousel_notes').remove();
-					var linkHTML = "<a href='"+singleVars.alt_url.url+"' target='"+singleVars.alt_url.target+"'>" + 
+					var containerLink = "<section class='no_carousel' />"
+					var linkHTML = "<a class='tienda_btn' href='"+singleVars.alt_url.url+"' target='"+singleVars.alt_url.target+"'>" + 
 									singleVars.alt_url.title + 
 									"</a>";
-					$('.experiencia .inner').append(linkHTML);
+					var legendLink = "<h5>Explora todas las posibilidades que Liverpool tiene para ti</h5>";
+					$('.experiencia .inner').append(containerLink);
+					$('.no_carousel').append(legendLink,linkHTML)
 				}else{
 					$('article.experiencia').remove();
 			}
@@ -159,6 +180,10 @@
 		if(typeof is_single !== 'undefined' && typeof singleVars !== 'undefined'){
 			singleVars.products = [];
 			if(singleVars.haveRelatedProducts){
+
+				var loader_carousel = '<div class="loader_carousel"><i class="fas fa-spin fa-spinner"></i></div>';
+				$('.experiencia .inner').append(loader_carousel);
+
 				getProducts(0);	
 			}else{
 				pintaURLAlternativa();
