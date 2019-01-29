@@ -11,8 +11,8 @@
 		            </section>
 
 		            <section class="legal">
-		                <a href="#">Términos y condiciones</a>
-		                <a href="#">Aviso de privacidad</a>
+		                <a href="https://assets.liverpool.com.mx/ayuda/?_ga=2.240192835.1145771125.1548771617-267814312.1546458703&_gac=1.149331268.1547834706.Cj0KCQiAj4biBRC-ARIsAA4WaFgYS8WSeHPEhHDbrf7YvCmt-h9SIJ51phUxidLUVHcRo1ztXdt-4bgaAhhHEALw_wcB#/sec/otros-temas/terminos-y-condiciones/aviso-de-privacidad-integral">Términos y condiciones</a>
+		                <a href="https://assets.liverpool.com.mx/ayuda/?_ga=2.240192835.1145771125.1548771617-267814312.1546458703&_gac=1.149331268.1547834706.Cj0KCQiAj4biBRC-ARIsAA4WaFgYS8WSeHPEhHDbrf7YvCmt-h9SIJ51phUxidLUVHcRo1ztXdt-4bgaAhhHEALw_wcB#/sec/otros-temas/terminos-y-condiciones/aviso-de-privacidad-integral">Aviso de privacidad</a>
 		            </section>
 		        </section>
 		        <section class="copyright">
