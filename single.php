@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php 
+	get_header(); 
+	
+	$isAMP = ( array_key_exists("amp", $_GET) );
+?>
 
 
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -7,7 +11,16 @@
 		<section class="share_container">
 		    <span class="share_opener"><i class="fas fa-share-alt"></i></span>
 		    <div class="share">
-		        <?php get_template_part("code_snippets/share_articles"); ?> 
+		        
+		        <?php
+		   			//$isAMP = ( array_key_exists("amp", $_GET) );
+					// if( $isAMP ){
+
+					// }
+					// else{
+						get_template_part("code_snippets/share_articles");
+					//}
+				?>
 		    </div>
 	    </section>
 
@@ -65,17 +78,24 @@
 	</section> <!-- inner nota --> 
 	<?php wp_reset_postdata();  ?> 
 
-	<?php get_template_part("code_snippets/widget_related_products"); ?> 
 
+	<?php
+		if( $isAMP ){
+			get_template_part("code_snippets/amp_related_products");
 
-	<?php 
-		
-		$compare_date = strtotime( "2018-12-31" );
-		$post_date    = strtotime( $post->post_date );
-		if (   $post_date < $compare_date ){
-			get_template_part("code_snippets/link_old_posts");
 		}
+		else{
 
+			$compare_date = strtotime( "2018-12-31" );
+			$post_date    = strtotime( $post->post_date );
+
+			if (   $post_date < $compare_date ){
+				get_template_part("code_snippets/link_old_posts");
+			}else{
+				get_template_part("code_snippets/widget_related_products");	
+			}
+
+		}
 	?>
 
 	<?php
