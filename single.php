@@ -91,6 +91,81 @@
 	
 ?> 
 
+<?php 
+$image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+$image_width = $image_data[1];
+$image_height = $image_data[2];
+?>
+<script type="application/ld+json">
+
+  {
+
+    "@context": "http://schema.org",
+
+    "@type": "Article",
+
+    "mainEntityOfPage":{
+
+      "@type":"WebPage",
+
+      "@id":"<?= get_permalink() ?>"
+
+    },
+
+    "headline": "<?= the_title() ?>",
+
+    "image": {
+
+      "@type": "ImageObject",
+
+      "url": "<?= get_the_post_thumbnail_url(); ?>",
+
+      "height": "<?= $image_height ?>",
+
+      "width": "<?= $image_width ?>"
+
+    },
+
+    "datePublished": "<?= get_post_time('c'); ?>",
+
+    "dateModified": "<?= the_modified_time('c'); ?>",
+
+    "author": {
+
+      "@type": "Person",
+
+      "name": "<?= get_the_author(); ?>"
+
+    },
+
+    "publisher": {
+
+      "@type": "Organization",
+
+      "name": "Liverpool",
+
+      "logo": {
+
+        "@type": "ImageObject",
+
+        "url": "http://devlook.grazia.es/wp-content/themes/looklliverpool/img/look_amp.png",
+
+        "width": 250,
+
+        "height": 60
+
+      }
+
+    },
+
+    "description": "<?= get_the_excerpt(); ?>",
+
+    "articleSection": "<?= $post_cat; ?>"
+
+
+  }
+
+</script>
 
 <?php 
 	/*testAPI

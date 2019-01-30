@@ -75,7 +75,7 @@
 			                    "<figure>"+
 			                        "<img src="+ item.images.lg +">"+
 			                    "</figure>"+
-			                    "<strong>"+item.displayName+"</strong>"+
+			                    "<figcaption><strong>"+item.displayName+"</strong></figcaption>"+
 			                    "<span>Comprar</span>"+
 			                "</a>";
 					$('.carousel_notes').append(html);

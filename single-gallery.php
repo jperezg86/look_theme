@@ -53,6 +53,15 @@
         <article class="thumbs_container">
         	<section class="inner">
         		<div class="thumbs">
+
+					<figure>
+		                <?php the_post_thumbnail('full'); ?>
+		                <section>
+		                    <p>
+		                       <?php //$image->post_content; ?>
+		                    </p>
+		                </section>
+		            </figure>
         			<?php 
         				$images = get_post_gallery(get_the_ID(),false);
         				$imagesIds = explode(",",$images['ids']);

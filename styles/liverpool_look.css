@@ -133,7 +133,7 @@ header.hide{opacity:0;}
 
 
 
-nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 90px;height: calc(100% - 90px);transition: .6s;transform: translate3d(0,0px,0) rotate(0deg) perspective(32px) rotateY(-1deg);opacity: 0;}
+nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 95px;height: calc(100% - 90px);transition: .6s;transform: translate3d(-100%,0,0) rotate(0deg) perspective(42px) rotateY(9deg);opacity: 0;}
 nav .logo{width: 170px;display: block;height: 50px;margin: 0 0 20px;}
 nav .logo img{width:100%;height: 100%;object-fit: contain;object-position: left center;}
 nav .back_liver{display:block;line-height:40px;padding: 0px 15px;background: #ffffff;border-bottom: 1px solid #ddd;text-transform: uppercase;}
@@ -149,7 +149,7 @@ nav ul li ul:after{font:normal 1.5em 'FontAwesome';display:block;text-align:cent
 nav ul li ul li{display:block;float:none;margin: 0;background: #fff;}
 nav ul li ul li:last-child a{ border:none;}
 nav ul li ul li a{ color:#333; border-bottom:1px solid #ddd;}
-nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspective(0px) rotateY(0deg);transition: .6s;}
+nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspective(0px) rotateY(0deg);transition: 1s;}
 
 
 
@@ -449,11 +449,11 @@ aside .list_notes b{ font-size:.7em;}
 .text p i{ font-style:italic}
 .text a{color: #e10098;position: relative;}
 .text .the_content a:hover{ text-decoration:underline}
-.text li{font-size:1em;line-height:1.5em;margin:0 0 20px;padding: 0 0 0 24px;position:relative;}
-.text li:after{width: 14px;height: 14px;background:#ddd;content:'';display:block;position: absolute;left: 0;top: 7px;border-radius: 10em;}
+.text li{font-size: 1.2em;line-height:1.5em;margin:0 0 20px;padding: 0 0 0 24px;position:relative;}
+.text li:after{width: 8px;height: 8px;background: #474546;content:'';display:block;position: absolute;left: 0;top: 8px;border-radius: 10em;}
 .text img{max-width: 100%;height:auto;display:block;margin: 20px auto;width: 100%;}
 .text img[width^="36"],.text img[width^="37"],.text img[width^="38"],.text img[width^="39"],.text img[width^="40"],.text img[width^="41"]{width:auto;display:initial;margin: 0;}
-
+.text b{font-weight:bolder}
 .text .tags{line-height: 25px;font-size:.8em;margin-top: 40px;text-transform: uppercase;}
 .text .tags a{margin: 0 2px;color: #666;background: #f1f1f1;padding: 0 10px;line-height: 20px;display: inline-block;}
 
@@ -481,8 +481,12 @@ aside .list_notes b{ font-size:.7em;}
 .experiencia a{padding: 20px 20px 80px;display:block;text-align: center;font-size: .9em;}
 .experiencia .owl-item{/* background:#f0f0f0; */}
 
-.experiencia .no_carousel{max-width:500px;width:100%;margin:0 auto;background:#eee;text-align:center;padding:20px;box-shadow: 0 3px 4px rgba(0, 0, 0, .3);border-radius: 5px;}
-.experiencia a.tienda_btn{ color:#fff;background: #e10098; padding:0; line-height:45px; margin:15px 0 0}
+.experiencia .no_carousel{max-width:500px;width:100%;margin: 20px auto;/* background: #474546; */text-align:center;padding:20px;/* box-shadow: 0 7px 10px rgba(0, 0, 0, .2); */border-radius: 6px;font-size: 1.2em;}
+.experiencia .no_carousel h5{color: #666;font-weight: normal;padding: 0 30px;font: normal 1em 'Roboto';max-width: 380px;margin: 0 auto;}
+.experiencia a.tienda_btn{color:#fff;/* background: #e10098; */padding:0;/* line-height:45px; */margin:15px 0 0;font-family: 'Montserrat';color: #e10098;}
+.experiencia a.tienda_btn:hover{ text-decoration:underline;}
+
+.experiencia .loader_carousel{height:100px;width:100%;text-align:center;display:flex;align-items:center;justify-content:center;font-size:2em;color: #e10098;}
 
 
 .gallery .share_container{ margin:0;}
@@ -570,8 +574,8 @@ img.expanded{width:auto;position: fixed!important;top: 1%!important;bottom: 10%!
 /* mobile portrait */
 @media only screen and (max-width: 799px) {
     
-.go_liverpool{height:40px;}    
-.go_liverpool a{padding: 0;margin: 0 auto;width: 130px;height: 40px;position: relative;}
+.go_liverpool{height: 45px;}    
+.go_liverpool a{padding: 0;margin: 0px auto;width: 120px;height: 45px;position: relative;}
 .go_liverpool a img{width: 100%;height: 100%;object-fit: contain;padding: 5px;}
 
 .go_liverpool a.back{ position:absolute;left:5px; width:40px; height:40px; background:url(../img/back.svg) no-repeat center/20px;text-indent:-1000px;}
@@ -596,7 +600,7 @@ main.galView{overflow:auto;padding-top: 50px;position: relative;bottom: inherit;
 header{box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);}
 header menu{display:none;position: fixed;top: 50px;}
 header > .inner{width: 100%;overflow: visible;height: 50px;padding: 0;justify-content: inherit;flex-wrap: nowrap;}
-header .logo,header.fixed .logo{width: 170px;margin: 0 auto 0;position: relative;height: 50px;top: inherit;background-position: center;}
+header .logo,header.fixed .logo{width: 170px;margin: 0 auto 0;position: relative;height: 50px;top: inherit;background-position: center;background-size: auto 90%;}
 header.fixed.forGal .logo{ height:30px}
 header form .inner{height:40px;padding: 0;width: 92%;}
 
