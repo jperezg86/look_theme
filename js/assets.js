@@ -739,16 +739,23 @@ $(document).ready(function() {
 
 	
 	$('.open_nav').click(function(e){
+		var hasScrolled = $(window).scrollTop();
+
 		e.preventDefault();
 		if( $(this).hasClass('active') ){
 			$(this).removeClass('active');
 			$('nav').removeClass('open');
 			$('header').removeClass('open');
+			if( hasScrolled == 0){
+				$('main').removeAttr('style');	
+			}
+			
 		}
 		else{
 			$(this).addClass('active');
 			$('nav').addClass('open');
-			$('header').addClass('open');	
+			$('header').addClass('open');
+			$('main').css('padding-top',$('header').outerHeight());
 		}
 	});
 
