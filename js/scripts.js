@@ -140,7 +140,7 @@
 					$('.experiencia .inner').append(containerLink);
 					$('.no_carousel').append(legendLink,linkHTML)
 				}else{
-					$('article.experiencia').remove();
+					$('article.experiencia:not(.older)').remove();
 			}
 		};
 

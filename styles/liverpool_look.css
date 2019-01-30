@@ -451,7 +451,7 @@ aside .list_notes b{ font-size:.7em;}
 .text .the_content a:hover{ text-decoration:underline}
 .text li{font-size: 1.2em;line-height:1.5em;margin:0 0 20px;padding: 0 0 0 24px;position:relative;}
 .text li:after{width: 8px;height: 8px;background: #474546;content:'';display:block;position: absolute;left: 0;top: 8px;border-radius: 10em;}
-.text img{max-width: 100%;height:auto;display:block;margin: 20px auto;width: 100%;}
+.text img{max-width: 100%;height:auto;display:block;margin: 20px auto;width: auto;height: auto;}
 .text img[width^="36"],.text img[width^="37"],.text img[width^="38"],.text img[width^="39"],.text img[width^="40"],.text img[width^="41"]{width:auto;display:initial;margin: 0;}
 .text b{font-weight:bolder}
 .text .tags{line-height: 25px;font-size:.8em;margin-top: 40px;text-transform: uppercase;}

@@ -67,6 +67,17 @@
 
 	<?php get_template_part("code_snippets/widget_related_products"); ?> 
 
+
+	<?php 
+		
+		$compare_date = strtotime( "2018-12-31" );
+		$post_date    = strtotime( $post->post_date );
+		if (   $post_date < $compare_date ){
+			get_template_part("code_snippets/link_old_posts");
+		}
+
+	?>
+
 	<?php
 		$relatedPosts = getRelatedPosts( get_post(), 4);
 		if(!is_null($relatedPosts)){ ?> 
@@ -160,7 +171,7 @@ $image_height = $image_data[2];
 
     "description": "<?= get_the_excerpt(); ?>",
 
-    "articleSection": "<?= $post_cat; ?>"
+    "articleSection": "<?= $categoryArr['name']; ?>"
 
 
   }
