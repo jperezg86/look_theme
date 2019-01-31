@@ -90,34 +90,76 @@
 					$('.loader_carousel').remove();
 				};
 
-				carousel.owlCarousel({
-					items:4,
-					margin:25,
-					stagePadding:0,
-					autoplay:false,
-					smartSpeed:450,
-					loop:true,
-					mouseDrag:true,
-					nav:true,
-					dots:true,
-					navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-					responsive : {
-					    0 : {
-					    	items:1,
-					    	margin:0
-					    },
-					    500 : {
-					    	item:3
-					    },
-					    768 : {
-					    	items:4
-					    },
-					    1000 : {
-					    	items:4
-					    }
-					},
-					afterInit: removeLoader(),
-				});
+				if(singleVars.products.length <= 4){
+
+					console.log('igual o menor a 4 ',singleVars.products.length);
+					
+						carousel.owlCarousel({
+						items:4,
+						margin:25,
+						stagePadding:0,
+						autoplay:false,
+						smartSpeed:450,
+						loop:false,
+						mouseDrag:false,
+						nav:false,
+						dots:false,
+						navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+						responsive : {
+							    0 : {
+							    	items:1,
+							    	margin:0,
+									mouseDrag:true,
+									loop:true,
+									nav:true,
+									dots:true,
+							    },
+							    500 : {
+							    	item:3,
+							    	loop:true,
+									nav:true,
+									dots:true,
+							    },
+							    768 : {
+							    	items:4,
+							    }
+							},
+							afterInit: removeLoader(),
+						});
+
+
+					
+				}
+				else{
+
+
+					carousel.owlCarousel({
+						items:4,
+						margin:25,
+						stagePadding:0,
+						autoplay:false,
+						smartSpeed:450,
+						loop:true,
+						mouseDrag:true,
+						nav:true,
+						dots:true,
+						navText : ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+						responsive : {
+						    0 : {
+						    	items:1,
+						    	margin:0
+						    },
+						    500 : {
+						    	item:3
+						    },
+						    768 : {
+						    	items:4
+						    }
+						},
+						afterInit: removeLoader(),
+					});
+					
+				}
 				// carousel.on('initilize.owl.carousel', function(event) {
 				// 	console.log('asd');
 				    
