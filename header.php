@@ -38,22 +38,22 @@
 	    if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
 	        if(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
 	            $back = $_SERVER['HTTP_REFERER'];
-	            $frase = "Volver al art&iacute;culo";
+	            $frase = "Volver";
 	            echo '<a href="#" class="back"><span>'.$frase.'</span></a>';
 	        } else {
 	            // $back = esc_url( home_url( '/' ) ); 
-	            // $frase = "Ir a la portada";                     
+	            // $frase = "Home";                     
 	        }
 	    } else {
 	        // $back = esc_url( home_url( '/' ) ); 
-	        // $frase = "Ir a la portada";  
+	        // $frase = "Home";  
 	    }
 	    
     }
 ?>
 
 			        <a href="https://www.liverpool.com.mx" target="_blank">
-			            <img src="<?= get_template_directory_uri() ?>/img/liverpool_bco.png" alt="Liverpool">
+			            <img src="<?= get_template_directory_uri() ?>/img/liverpool.svg" alt="Liverpool">
 			        </a>
 			    </section>
 			</section>

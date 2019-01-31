@@ -60,8 +60,10 @@ a{transition: all 500ms ease-out; }
 
 /* conatiners */
 .go_liverpool{background: #e10098;}
-.go_liverpool a{width:100px;display:block;padding: 4px 0;}
-.go_liverpool a img{ width:100px; height:auto; display:block;}
+.go_liverpool a{width: 160px;display:block;padding: 12px 0;transition:none;}
+.go_liverpool a img{width: 100%;height:auto;display:block;}
+
+header.fixed .go_liverpool a{ width:100px;padding:7px 0;}
 
 main{width:100%;top: 0;/* transition: all 500ms ease-out; */background:#fff;left:0;z-index: 1;position: relative;overflow: hidden;}
 main.galView{/* padding-top: 100px; *//* position: absolute; */bottom: 0;background: #fff;}
@@ -133,7 +135,7 @@ header.hide{opacity:0;}
 
 
 
-nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 95px;height: calc(100% - 90px);transition: .6s;transform: translate3d(-100%,0,0) rotate(0deg) perspective(42px) rotateY(9deg);opacity: 0;}
+nav{position: fixed;padding: 0 10px;width: 100%;background: rgba(255,255,255,1);margin: 0 auto;top: 100px;height: calc(100% - 100px);transition: .6s;transform: translate3d(-100%,0,0) rotate(0deg) perspective(42px) rotateY(9deg);opacity: 0;}
 nav .logo{width: 170px;display: block;height: 50px;margin: 0 0 20px;}
 nav .logo img{width:100%;height: 100%;object-fit: contain;object-position: left center;}
 nav .back_liver{display:block;line-height:40px;padding: 0px 15px;background: #ffffff;border-bottom: 1px solid #ddd;text-transform: uppercase;}
@@ -149,7 +151,7 @@ nav ul li ul:after{font:normal 1.5em 'FontAwesome';display:block;text-align:cent
 nav ul li ul li{display:block;float:none;margin: 0;background: #fff;}
 nav ul li ul li:last-child a{ border:none;}
 nav ul li ul li a{ color:#333; border-bottom:1px solid #ddd;}
-nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspective(0px) rotateY(0deg);transition: 1s;}
+nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspective(0px) rotateY(0deg);transition: .01s;}
 
 
 
@@ -171,7 +173,7 @@ nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspe
 .open_nav span{width: 22px;transform: scale(.8);}
 .open_nav span:before {top: -10px;}
 .open_nav span:after {bottom: -10px;}
-.open_nav span, .open_nav span:before, .open_nav span:after {transition: all 700ms ease-out;}
+.open_nav span, .open_nav span:before, .open_nav span:after {transition: all .1s ease-out;}
 .open_nav.active span {background-color: transparent;}
 .open_nav.active span:before, .open_nav.active span:after {top: 0;}
 .open_nav.active span:before {transform: rotate(45deg);}
@@ -595,11 +597,12 @@ html[amp] .experiencia figure * *{object-fit: contain;}
 /* mobile portrait */
 @media only screen and (max-width: 799px) {
     
-.go_liverpool{height: 45px;}    
-.go_liverpool a{padding: 0;margin: 0px auto;width: 120px;height: 45px;position: relative;}
-.go_liverpool a img{width: 100%;height: 100%;object-fit: contain;padding: 5px;}
+.go_liverpool{height: 55px;}    
+header.fixed .go_liverpool a, .go_liverpool a{padding: 0;margin: 0px auto;width: 140px;height: 55px;position: relative;}
+header.fixed .go_liverpool a.back{ width:40px}
+.go_liverpool a img{width: 100%;height: 100%;object-fit: contain;}
 
-.go_liverpool a.back{ position:absolute;left:5px; width:40px; height:40px; background:url(../img/back.svg) no-repeat center/20px;text-indent:-1000px;}
+header.fixed .go_liverpool a.back,.go_liverpool a.back{ position:absolute;left:5px; width:40px; height:40px; background:url(../img/back.svg) no-repeat center/20px;text-indent:-1000px;}
 
 .col_aside,.col_2,.col_3,.col_3f{width: 96%;}
 
@@ -625,8 +628,8 @@ header .logo,header.fixed .logo{width: 170px;margin: 0 auto 0;position: relative
 header.fixed.forGal .logo{ height:30px}
 header form .inner{height:40px;padding: 0;width: 92%;}
 
-header.open{position:fixed;margin: 0;box-shadow: 0 10px 20px rgba(0,0,0,.2);animation: hfix .5s ease;}
-header.open .open_search{opacity:0}
+header.open{position:fixed;margin: 0;box-shadow: 0 10px 20px rgba(0,0,0,.2);/* animation: hfix .5s ease; */}
+header.open .open_search{opacity:0;display: none;}
 
 
 .owl-dots .owl-dot{width:12px; height:12px}
@@ -774,6 +777,11 @@ nav .social_links a{height: 60px;line-height: 60px;color: #333;width: 60px;}
 
 .grid_section .card{margin-bottom:30px;width: 100%;}
 .grid_section .card:nth-child(2),.grid_section .card:nth-child(3){ width:48%}
+
+
+.list .card{padding:0 0 0 40%;}
+.list .card figure{width:38%}
+.list .card span{ font-size:.8em}
 
 }
 

@@ -756,6 +756,7 @@ $(document).ready(function() {
 			$('nav').addClass('open');
 			$('header').addClass('open');
 			$('main').css('padding-top',$('header').outerHeight());
+			$('.open_search.active').trigger('click');
 		}
 	});
 
