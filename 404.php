@@ -1,24 +1,79 @@
 <?php get_header(); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+	<?php /*
+		_e( 'Page not found', 'lookliverpool' ); 
+		_e( 'Return home?', 'lookliverpool' );
+	*/ ?>	
+		
+	<section class="post404">
 
-			<!-- article -->
-			<article id="post-404">
+		<article class="inner">
 
-				<h1><?php _e( 'Page not found', 'lookliverpool' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'lookliverpool' ); ?></a>
-				</h2>
+			<h1>
+				Página no encontrada
+			</h1>
+			
 
-			</article>
-			<!-- /article -->
+			<section class="opts_404">
 
-		</section>
-		<!-- /section -->
-	</main>
+				<h3>
+					<i class="fas fa-frown"></i>
+					Lo sentimos, la página a la que has accesado no esta disponible
+				</h3>
 
-<?php get_sidebar(); ?>
+				<article>
+
+					
+
+					<a href="<?php echo home_url(); ?>">Volver al Inicio</a>
+
+					
+
+					<form method="get" action="http://devlook.grazia.es" role="search" class="search">
+				        <section class="inner">
+				            <input type="text" placeholder="Buscar algo..." name="s">
+				            <button>Ir</button>
+				        </section>
+			    	</form>
+
+		    	</article>
+			</section>
+
+
+			<h2 class="nice">Lo último</h2>
+
+			<section class="grid_section">
+
+			<?php 
+
+
+				$args = array(
+			        'post_type'     => 'post',
+			        'post_status'   => 'publish',
+			        'orderby'       => 'post_date',
+			        'order'         => 'desc'
+			    );
+
+				$lasts_posts = getPosts($args,4);
+
+		    	if($lasts_posts->have_posts()){
+		    		while ($lasts_posts -> have_posts() ) {
+		    			$lasts_posts->the_post();
+		    			get_template_part("code_snippets/card_widget_home");
+		    		}
+		    		wp_reset_postdata();
+		    	}
+
+			?>
+
+			</section>
+
+
+			
+
+		</article>
+
+	</section>
+
 
 <?php get_footer(); ?>
