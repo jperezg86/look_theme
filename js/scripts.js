@@ -70,7 +70,8 @@
 
 				singleVars.products.forEach(function(item, index){
 					item = item.productInfo;
-					var urlTienda = "https://www.liverpool.com.mx/tienda/pdp/"+item.productId;
+					var urlTienda = "https://wst.liverpool.com.mx/tienda/pdp/"+item.productId;
+					// var urlTienda = "https://www.liverpool.com.mx/tienda/pdp/"+item.productId;
 					var html = "<a href='"+ urlTienda +"' target='_blank'>"+
 			                    "<figure>"+
 			                        "<img src="+ item.images.lg +">"+

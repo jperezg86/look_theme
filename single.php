@@ -90,7 +90,12 @@
 			$post_date    = strtotime( $post->post_date );
 
 			if (   $post_date < $compare_date ){
-				get_template_part("code_snippets/link_old_posts");
+				$link = get_field("url_sin_articulos");
+				if(!$link){
+					get_template_part("code_snippets/link_old_posts");	
+				}else{
+					get_template_part("code_snippets/widget_related_products");	
+				}
 			}else{
 				get_template_part("code_snippets/widget_related_products");	
 			}
