@@ -332,6 +332,7 @@ form a.more{font-size:.8em;display:block;margin: 0px auto 20px;padding:0;width:1
 
 
 .carousel_notes{display:flex;flex-wrap:wrap;width: calc(100% - 100px);margin: 0 auto;touch-action: manipulation;}
+.carousel_notes > a{ width:25%!important; margin:0 auto;}
 .carousel_notes .owl-stage,.carousel_notes .owl-stage-outer{/* overflow:visible; */}
 .carousel_notes .owl-item{background: #fff;} 
 .carousel_notes.owl-carousel .owl-stage{ display: flex} 
@@ -480,8 +481,8 @@ aside .list_notes b{ font-size:.7em;}
 .experiencia:after{width:30%;height:1px;background: #d9dbdc;content:'';display:block;margin: 50px auto 0px;}
 .experiencia a strong{font: 400 1em/1.5em 'Montserrat';color:#333;text-align: center;margin: 20px 0 0;display: block;}
 .experiencia a span{display:block;color: #fff;background: #e10098;line-height: 35px;text-align:center;position:absolute;width: calc(100% - 70px);bottom: 20px;left: 35px;border-radius: 0;/* text-transform: uppercase; */box-shadow: 0 4px 10px rgba(160, 153, 153, 0.1);font: normal 1em/40px 'Roboto';}
-.experiencia a{padding: 20px 20px 80px;display:block;text-align: center;font-size: .9em; position: relative;}
-.experiencia a figure img{ object-fit:contain; height:auto;}
+.experiencia a{padding: 20px 20px 80px;display:block;text-align: center;font-size: .9em;position: relative;width: 100%;}
+.experiencia a figure img{object-fit:contain;height:auto;width: 100%;}
 .experiencia .owl-item{/* background:#f0f0f0; */}
 
 .experiencia .no_carousel{max-width:500px;width:100%;margin: 20px auto;/* background: #474546; */text-align:center;padding:20px;/* box-shadow: 0 7px 10px rgba(0, 0, 0, .2); */border-radius: 6px;font-size: 1.2em;}
@@ -678,6 +679,7 @@ footer .legal a{ display:block; margin:0; text-align:center;}
 .list_notes.noticias .card:nth-child(3) div{width:100%;margin-left:0%;padding: 10px 4% 15px;position: initial;}
 
 .carousel_notes{ width:calc(100% - 60px)}
+.carousel_notes > a{width:100%!important}
 .carousel_notes.owl-carousel .owl-prev{ left:-40px}
 .carousel_notes.owl-carousel .owl-next{ right:-40px}
 

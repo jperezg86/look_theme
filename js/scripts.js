@@ -94,6 +94,13 @@
 				if(singleVars.products.length <= 4){
 
 					console.log('igual o menor a 4 ',singleVars.products.length);
+					if(singleVars.products.length == 1){
+
+						 removeLoader();
+
+
+					}
+					else{
 					
 						carousel.owlCarousel({
 						items:4,
@@ -128,7 +135,7 @@
 							afterInit: removeLoader(),
 						});
 
-
+					}
 					
 				}
 				else{

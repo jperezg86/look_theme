@@ -22,10 +22,19 @@
 	        	foreach ($itemsProd as $item) {
 				    $dataItem = file_get_contents('https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp?productId='.$item.'');
 				    $response = json_decode($dataItem);
-					//print_r($dataItem);
+
+
+
+				 //    echo('<div class="JSON">');
+					// print_r($dataItem);
+				 //    echo('</div>');
+
 				    $nombre = $response->productInfo->displayName;
 				    $imagen = $response->productInfo->images->lg;
+
+				    if( !empty($nombre) ){
 				?>
+
 					<a href="https://www.liverpool.com.mx/tienda/pdp/<?= $item  ?>" target="_blank">
 						<figure>
 							 <amp-img src="<?= $imagen ?>" alt="<?= $nombre ?>" width="3" height="2" class="amp-wp-enforced-sizes" layout="responsive"></amp-img>
@@ -34,7 +43,10 @@
 						<span>Comprar</span>
 					</a>
 
-			<?php } ?>
+			<?php 
+					}
+				} 
+			?>
 
 				</amp-carousel>
 					
