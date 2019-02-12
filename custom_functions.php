@@ -219,8 +219,8 @@ function get_more_notes(){
 
 function get_info_product(){
 	$productId = $_REQUEST['productId'];
-	$baseURL = "https://shopappst.liverpool.com.mx/appclienteservices/services/v3/pdp?productId=".$productId;
-	//$baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp?productId=".$productId;
+	// $baseURL = "https://shopappst.liverpool.com.mx/appclienteservices/services/v3/pdp?productId=".$productId;
+	$baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/pdp?productId=".$productId;
 	// echo $baseURL;
 	$content = file_get_contents($baseURL);
 	$array = json_decode($content,true);

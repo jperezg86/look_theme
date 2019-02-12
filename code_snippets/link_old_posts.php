@@ -4,7 +4,7 @@
 
         <section class="no_carousel">
         	<h5>Explora todas las posibilidades que Liverpool tiene para ti</h5>
-        	<a class="tienda_btn" href="https://wst.liverpool.com.mx/" target="_blank">Ir a liverpool.com.mx</a>
+        	<a class="tienda_btn" href="https://www.liverpool.com.mx/" target="_blank">Ir a liverpool.com.mx</a>
         </section>
        
     </section>  

@@ -52,7 +52,7 @@
     }
 ?>
 
-			        <a href="https://wst.liverpool.com.mx" target="_blank">
+			        <a href="https://www.liverpool.com.mx" target="_blank">
 			            <img src="<?= get_template_directory_uri() ?>/img/liverpool.svg" alt="Liverpool">
 			        </a>
 			    </section>
