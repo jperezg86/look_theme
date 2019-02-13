@@ -231,6 +231,13 @@ function get_info_product(){
 	wp_die();
 }
 
+remove_shortcode('gallery');
+add_shortcode('gallery', 'gallery_shortcode_lo');
+
+function gallery_shortcode_lo($attr) {
+
+}
+
 
 add_action('wp_ajax_nopriv_get_more_notes', 'get_more_notes');
 add_action('wp_ajax_get_more_notes', 'get_more_notes');

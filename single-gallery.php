@@ -32,11 +32,11 @@
 	                            $excerpt = stripExcerpt(get_the_excerpt(), 180);
 	                            echo $excerpt;      
 	                          } ?>
-
-
-
 	        	 </h2>
-	        	 
+	        	  <div class="text">
+	        	  	 <?= the_content(); ?> 
+	        	  </div>
+	        	 <??>	        	 
 	        	 <section class="photo_desc">
 	             </section>
         	</article> <!-- text -->
@@ -86,6 +86,32 @@
         </article>
 <?php	endwhile; 
 	    wp_reset_postdata(); ?>
+
+<?php
+		if( $isAMP ){
+			get_template_part("code_snippets/amp_related_products");
+
+		}
+		else{
+
+			$compare_date = strtotime( "2018-12-31" );
+			$post_date    = strtotime( $post->post_date );
+
+			if (   $post_date < $compare_date ){
+				$link = get_field("url_sin_articulos");
+				if(!$link){
+					get_template_part("code_snippets/link_old_posts");	
+				}else{
+					get_template_part("code_snippets/widget_related_products");	
+				}
+			}else{
+				get_template_part("code_snippets/widget_related_products");	
+			}
+
+		}
+	?>
+
+
 
 	    <?php
 		$relatedPosts = getRelatedPosts( get_post(), 4);

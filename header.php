@@ -30,8 +30,6 @@
 		<header>
 			<section class="go_liverpool">
 			    <section class="inner">
-
-
 <?php
 	if( wp_is_mobile() ){
 	    if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
