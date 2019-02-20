@@ -2,7 +2,7 @@
      <section class="inner">
         <a href="<?=get_the_permalink(); ?>" class="card">
             <figure>
-                  <?= the_post_thumbnail('large'); ?>
+                  <?= the_post_thumbnail('full'); ?>
             </figure>
             <figcaption>
             <div>
