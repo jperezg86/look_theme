@@ -497,9 +497,9 @@ aside .list_notes b{ font-size:.7em;}
 .gallery .poster{width: 50%;position: relative;/* background: #eaedf1; *//* border: 1px solid #eaedf1; */}
 .gallery .poster img{width: calc(100% - 100px);height: 98%;object-fit:contain;left: 50px;top: 1%;position: absolute;cursor: zoom-in;}
 .gallery .photo_credit{font-size: .9em;display:block;margin-bottom:10px;}
-.gallery .text{display: block;width: 50%;margin: 0 0 130px;position: relative;flex-wrap: wrap;justify-content: space-between;}
+.gallery .text{display: block;width: 50%;margin: 0 0 40px;position: relative;flex-wrap: wrap;justify-content: space-between;}
 .gallery .text h1{ text-align:left; width:100%;}
-.gallery .text h2{ text-align:left; width:100%;}
+.gallery .text h2{text-align:left;width:100%;margin: 0 0 20px;}
 .gallery .breadcrumbs{ justify-content:left;}
 .gallery .info_note div{ text-align:left}
 .gallery .photo_desc{font-size:.9em;margin-top: 40px;}
@@ -593,6 +593,7 @@ html[amp] .list_notes .card{ display: block; }
 html[amp] .list_notes figure * *{object-fit: cover;}
 html[amp] .experiencia h3 + *{width: 100%;}
 html[amp] .experiencia figure * *{object-fit: contain;}
+html[amp] .top_note a figure * *{object-fit:cover;}
 /*html[amp] .inner.note + .experiencia{display: none}*/
 
 
