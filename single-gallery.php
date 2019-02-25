@@ -33,11 +33,8 @@
 	                            echo $excerpt;      
 	                          } ?>
 	        	 </h2>
-	        	  <!--div class="text"-->
-	        	  	 <?= the_content(); ?> 
-	        	  <!--/div-->
-	        	 <??>	        	 
 	        	 <section class="photo_desc">
+	        	 	<?= the_content(); ?> 	 
 	             </section>
         	</article> <!-- text -->
 

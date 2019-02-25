@@ -417,7 +417,7 @@ $(document).ready(function() {
 		else{
 			
 			//encuentra y guarda el intro text
-			var firstDesq = $('.desq').text();
+			var firstDesq = $('.photo_desc').text();
 			//se la asigna a la primera imagen
 			$('.thumbs figure:first-child img').removeAttr('srcset class sizes').attr('data-description',firstDesq);
 			//se quita atributi srcset para tomar la imagen mas grande
@@ -488,12 +488,12 @@ $(document).ready(function() {
 			
 			//thumbs.trigger('to.owl.carousel', realHash);
 			
-			/*if( realHash === '0' ){
-				$('.introtext').html(introtext);
+			if( realHash === '0' ){
+				desq = $('<p>'+$('.thumbs .owl-item').eq(realHash).find('img').attr('data-description')+'</p>');
 			}
-			else{
-				$('.introtext').html(desq2);
-			} */ 
+			// else{
+			// 	$('.introtext').html(desq2);
+			// } 
 			
 			
 			//imagen a imprimir
