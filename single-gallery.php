@@ -33,9 +33,9 @@
 	                            echo $excerpt;      
 	                          } ?>
 	        	 </h2>
-	        	  <div class="text">
+	        	  <!--div class="text"-->
 	        	  	 <?= the_content(); ?> 
-	        	  </div>
+	        	  <!--/div-->
 	        	 <??>	        	 
 	        	 <section class="photo_desc">
 	             </section>
