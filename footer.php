@@ -4,6 +4,7 @@
 		                <a href="https://www.facebook.com/lookbyliverpool/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		                <a href="https://www.instagram.com/lookbyliverpool/" target="_blank"><i class="fab fa-instagram"></i></a>
 		                <a href="https://www.pinterest.es/lookbyliverpool/" target="_blank"><i class="fab fa-pinterest"></i></a>
+		                <a href="https://twitter.com/LookByLiverpool" target="_blank"><i class="fab fa-twitter"></i></a>
 		            </section>
 
 		            <section class="logo">
