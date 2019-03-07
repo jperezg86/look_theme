@@ -6,7 +6,7 @@
 * @return el query de post encontrados como resultado
 *
 */
-function get_sticky_post_for_home($index){
+function get_sticky_post_for_home($index, $exclude=null){
 	// $index--;
 	$sticky = get_option( 'sticky_posts' );
 
@@ -19,12 +19,15 @@ function get_sticky_post_for_home($index){
             'order'   => 'DESC',
 			'ignore_sticky_posts' => true
 		);	
+
+		// if(!is_null($exclude)){
+		// 	$args['post__not_in'] = $exclude;
+		// }
+
+
 		return new WP_Query($args);
 	}
-	// $query = new WP_Query( $args );
-	// if ( isset($sticky[$index]) ) {
-	// 	return $query;
-	// }
+	
 }
 
 /**
@@ -58,7 +61,8 @@ function getMainCategoryWithDetails($fromPostId){
 * @param $limit el tope de posts a devolver por la funcion
 * @return $the_query el query para iterarlo en la view
 **/ 
-function getPostsByCategory($categorySlug, $numberOfPosts, $ignore_sticky_posts = false){
+function getPostsByCategory($categorySlug, $numberOfPosts, 
+		 $ignore_sticky_posts = false,$ignoredIds = null){
 
 	$args = array(
 		'post_status' => 'publish',
@@ -70,6 +74,9 @@ function getPostsByCategory($categorySlug, $numberOfPosts, $ignore_sticky_posts 
 
 	if($ignore_sticky_posts){
 		$post_to_ignore = get_option('sticky_posts');
+		if(!is_null($ignoredIds)){
+			$post_to_ignore = array_merge($post_to_ignore,$ignoredIds);
+		}
 		$args['post__not_in'] = $post_to_ignore;
 		
 	}
@@ -96,10 +103,38 @@ function stripExcerpt($naturalExcerpt, $limit){
 * @param $postQuantity (opcional) la cantidad de posts a devolver, por default 8
 * @param $offset (opcional) el inicio desde donde empezará a contar los resultados, default no offset.
 **/
-function getPosts($byCategory, $postQuantity = 18, $offset=0){
+function getPosts($byCategory = "", $postQuantity = 18, $offset=0){
+	$args = array(
+		// "category_name" => $byCategory,
+		"orderby" =>  "modified",
+		"type" => "post",
+		"post_status" => "publish",
+		"ignore_sticky_posts" => 1,
+		"posts_per_page" => $postQuantity
+	);
+
+	if(!empty($byCategory)){
+		$args['category_name'] = $byCategory;
+	}
+
+	if($offset > 0){
+		$args["offset"] = $offset;
+	}
+	return new WP_Query($args);
+}
+
+/**
+* obtiene los N posts mas recientes a partir de un offset
+* que pertenecen a la categoría proporcionada por el parametro
+* ordenador por fecha de publicación
+* @param $byCategory el slug de la categoría a buscar
+* @param $postQuantity (opcional) la cantidad de posts a devolver, por default 8
+* @param $offset (opcional) el inicio desde donde empezará a contar los resultados, default no offset.
+**/
+function getPostsByPublished($byCategory, $postQuantity = 18, $offset=0){
 	$args = array(
 		"category_name" => $byCategory,
-		"orderby" =>  "modified",
+		"orderby" =>  "date",
 		"type" => "post",
 		"post_status" => "publish",
 		"posts_per_page" => $postQuantity
@@ -238,11 +273,68 @@ function gallery_shortcode_lo($attr) {
 
 }
 
+/**
+* Trackea los post mas vistos 
+*/
+
+function wpb_set_post_views($postID) {
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+//To keep the count accurate, lets get rid of prefetching
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+
+function wpb_track_post_views ($post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $post_id) ) {
+        global $post;
+        $post_id = $post->ID;    
+    }
+    wpb_set_post_views($post_id);
+}
+
+
+
+function getPopularPosts($limit){
+	add_filter("post_limits","returnlimit");
+	$query = new WP_Query( 
+		array(
+			'posts_per_page' => $limit, 
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'ignore_sticky_posts'=>1,
+			'nopaging' => true,
+			'meta_key' => 'wpb_post_views_count', 
+			'orderby' => 'meta_value_num', 
+			'order' => 'DESC'));
+
+	add_filter("post_limits","returnlimit");
+	return $query;
+
+}
+
+
+function returnlimit() {
+	return 'LIMIT 4';
+}
+
+
 
 add_action('wp_ajax_nopriv_get_more_notes', 'get_more_notes');
 add_action('wp_ajax_get_more_notes', 'get_more_notes');
 add_action('wp_ajax_nopriv_get_info_product','get_info_product');
 add_action('wp_ajax_get_info_product', 'get_info_product');
+add_action( 'wp_head', 'wpb_track_post_views');
 
 
 ?>
