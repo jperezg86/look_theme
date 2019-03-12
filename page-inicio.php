@@ -52,6 +52,23 @@
 		} 
 	}?> 
 
+ <!-- <section class="news_home"> -->
+	<section class="inner">
+        <h2 class="nice">Lo más nuevo</h2>
+        <?php $latestPosts = getPosts("",4);
+         	if($latestPosts -> have_posts()){ ?> 
+	            <section class="list_notes">
+	            	<?php while($latestPosts -> have_posts()){ 
+	            			$latestPosts -> the_post(); ?> 
+	            			<?php get_template_part("code_snippets/card_widget_home"); ?> 
+	            	<?php } ?> 
+	            </section>
+        <?php 
+        		wp_reset_postdata();
+    		} ?> 
+    </section>
+<!-- </section> -->
+
 <!-- <section class="news_home"> -->
 		<section class="inner">
             <h2 class="nice">Lo más leído</h2>
@@ -68,26 +85,6 @@
 	    		} ?> 
         </section>
     <!-- </section> -->
-
-
-    <!-- <section class="news_home"> -->
-		<section class="inner">
-            <h2 class="nice">Lo último</h2>
-            <?php $latestPosts = getPosts("",4);
-             	if($latestPosts -> have_posts()){ ?> 
-		            <section class="list_notes">
-		            	<?php while($latestPosts -> have_posts()){ 
-		            			$latestPosts -> the_post(); ?> 
-		            			<?php get_template_part("code_snippets/card_widget_home"); ?> 
-		            	<?php } ?> 
-		            </section>
-	        <?php 
-	        		wp_reset_postdata();
-	    		} ?> 
-        </section>
-    <!-- </section> -->
-
-
 
     <section class="news_home">
 		<section class="inner">
