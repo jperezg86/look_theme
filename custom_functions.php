@@ -318,7 +318,7 @@ function getPopularPosts($limit){
 			'orderby' => 'meta_value_num', 
 			'order' => 'DESC'));
 
-	add_filter("post_limits","returnlimit");
+	remove_filter("post_limits","returnlimit");
 	return $query;
 
 }
