@@ -177,7 +177,7 @@
 
 <section class="inner">
         <h4 class="nice">Moda</h4>
-        <?php $moda_query = getPostsByCategory('moda', 4, true);
+        <?php $moda_query = getPostsByCategory('moda', 4, true, $postToExclude);
              	if($moda_query -> have_posts()){ ?> 
         <section class="list_notes">
         	<?php $titleElement = "h3"; ?>
@@ -194,7 +194,7 @@
     <?php } ?>
 
 
-<?php $impresa_query = getPostsByCategory('edicion-impresa', 1, true); 
+<?php $impresa_query = getPostsByCategory('edicion-impresa', 1, true,$postToExclude); 
 	  if($impresa_query->have_posts()) {
 	  	while($impresa_query->have_posts()){
 	  			$impresa_query->the_post();
@@ -219,7 +219,7 @@
 ?>
 
 <h4 class="nice">Tecnología</h4>
-<?php $tecnologia_query = getPostsByCategory('tecnologia', 4, true);
+<?php $tecnologia_query = getPostsByCategory('tecnologia', 4, true,$postToExclude);
  	if($tecnologia_query -> have_posts()){ ?> 
         <section class="list_notes">
         	<?php $titleElement = "h3"; ?>
