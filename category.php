@@ -4,7 +4,7 @@
         <section class="inner">
         	<?php $category = get_category(get_queried_object()->term_id); ?> 
             <h1><?= single_cat_title(); ?> </h1>
-            <h2><?= $category->description; ?></h2>
+            <h3><?= $category->description; ?></h3>
         </section>
     </section>	
 
@@ -25,9 +25,10 @@
     		<section class="news_home">
 			    <section class="inner">
 			       	<section class="grid_section">
+			       		<?php $titleElement = "h2"; ?>
 						  <?php while($firstSectionPosts -> have_posts()){
 			    					$firstSectionPosts -> the_post(); 
-			    					get_template_part("code_snippets/card_widget_home");
+			    					include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );
 			            		}
 								wp_reset_postdata(); ?> 
 					</section>

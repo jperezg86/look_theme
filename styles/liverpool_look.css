@@ -816,6 +816,11 @@ nav ul li ul:after{display:none;}
 }
 
 
+.top_note h2{
+	font-size: 1em!important;
+}
+
+
 
 /* mobile landscape*/
 @media only screen and (max-height: 700px) and (min-height: 500px) and (orientation: landscape) {

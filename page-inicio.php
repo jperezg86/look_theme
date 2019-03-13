@@ -1,4 +1,5 @@
 <?php /* Template Name: Page Inicio */ ?>
+<h1 class="hidden">Look! by Liverpool</h1>
 <?php get_header(); 
  	$postToExclude = array();
 	$popularPosts = getPopularPosts(4);
@@ -37,7 +38,7 @@
 
 						            	 ?> 
 						                <em><?= getFirstCategory(get_the_ID()); ?></em>
-						                <strong><?= get_the_title(); ?></strong>
+						                <h2><strong><?= get_the_title(); ?></strong></h2>
 						                <?php if(has_excerpt()) { ?>
 						                	<span><?= get_the_excerpt(); ?></span>
 						                <?php } ?> 
@@ -54,13 +55,16 @@
 
  <!-- <section class="news_home"> -->
 	<section class="inner">
-        <h2 class="nice">Lo más nuevo</h2>
+        <h4 class="nice">Lo más nuevo</h4>
         <?php $latestPosts = getPosts("",4);
          	if($latestPosts -> have_posts()){ ?> 
 	            <section class="list_notes">
+	            	<?php $titleElement = "h2"; ?>
 	            	<?php while($latestPosts -> have_posts()){ 
 	            			$latestPosts -> the_post(); ?> 
-	            			<?php get_template_part("code_snippets/card_widget_home"); ?> 
+	            			<?php //get_template_part("code_snippets/card_widget_home");
+	            					include( locate_template( 'code_snippets/card_widget_home.php', false, false ) ); 
+	            			?> 
 	            	<?php } ?> 
 	            </section>
         <?php 
@@ -71,13 +75,14 @@
 
 <!-- <section class="news_home"> -->
 		<section class="inner">
-            <h2 class="nice">Lo más leído</h2>
+            <h4 class="nice">Lo más leído</h4>
             <?php $popularPosts = getPopularPosts(4);
              	if($popularPosts -> have_posts()){ ?> 
 		            <section class="list_notes">
+		            	<?php $titleElement = "h3"; ?>
 		            	<?php while($popularPosts -> have_posts()){ 
 		            			$popularPosts -> the_post(); ?> 
-		            			<?php get_template_part("code_snippets/card_widget_home"); ?>
+		            			<?php include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );  ?>
 		            	<?php } ?> 
 		            </section>
 	        <?php 
@@ -88,13 +93,14 @@
 
     <section class="news_home">
 		<section class="inner">
-            <h2 class="nice">Noticias</h2>
+            <h4 class="nice">Noticias</h4>
             <?php $noticias_query = getPostsByCategory('noticias', 7, true, $postToExclude);
              	if($noticias_query -> have_posts()){ ?> 
 		            <section class="list_notes noticias">
+		            	<?php $titleElement = "h2"; ?>
 		            	<?php while($noticias_query -> have_posts()){ 
 		            			$noticias_query -> the_post(); ?> 
-		            			<?php get_template_part("code_snippets/card_widget_home"); ?>
+		            			<?php include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );  ?>
 		            	<?php } ?> 
 		            </section>
 	        <?php 
@@ -107,7 +113,7 @@
 
     <section class="joy_tv">
         <section class="inner">
-            <h2 class="nice txt_center">Look.TV</h2>
+            <h4 class="nice txt_center">Look.TV</h4>
             	<?php $joyTV_query = getPostsByCategory("look_tv",8, true);
             			if ($joyTV_query->have_posts()) { ?> 
 	                <section class="carousel_notes">
@@ -120,7 +126,7 @@
 	                        </figure>
 	                        <div>
 	                            <em><?= getFirstCategory(get_the_ID()); ?></em>
-	                            <strong><?=get_the_title()?></strong>
+	                            <h3><strong><?=get_the_title()?></strong></h3>
 	                            <time><?= the_time("d F Y"); ?></time>
 	                        </div>
 	                    </a>
@@ -170,15 +176,16 @@
 
 
 <section class="inner">
-        <h2 class="nice">Moda</h2>
+        <h4 class="nice">Moda</h4>
         <?php $moda_query = getPostsByCategory('moda', 4, true);
              	if($moda_query -> have_posts()){ ?> 
         <section class="list_notes">
+        	<?php $titleElement = "h3"; ?>
 			<?php while($moda_query -> have_posts()){ 
 		     		$moda_query -> the_post();
 		    ?> 
-		    	<?php get_template_part("code_snippets/card_widget_home"); ?> 
-		    <?php
+		    	<?php 
+		    		include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );
 		    		wp_reset_postdata(); 
 		    	}
 		     ?> 
@@ -211,13 +218,15 @@
 	} 
 ?>
 
-<h2 class="nice">Tecnología</h2>
+<h4 class="nice">Tecnología</h4>
 <?php $tecnologia_query = getPostsByCategory('tecnologia', 4, true);
  	if($tecnologia_query -> have_posts()){ ?> 
         <section class="list_notes">
+        	<?php $titleElement = "h3"; ?>
         	<?php while($tecnologia_query -> have_posts()){ 
         			$tecnologia_query -> the_post(); ?> 
-        			<?php get_template_part("code_snippets/card_widget_home"); ?>
+        			<?php 
+		    		include( locate_template( 'code_snippets/card_widget_home.php', false, false ) ); ?>
         	<?php } ?> 
         </section>
 <?php 
