@@ -55,9 +55,10 @@
     		<section class="news_home">
 			    <section class="inner">
 			       	<section class="grid_section">
+			       		<?php $titleElement = "h2"; ?>
 						  <?php while($secondSectionPosts -> have_posts()){
 			    					$secondSectionPosts -> the_post(); 
-			    					get_template_part("code_snippets/card_widget_home");
+			    					include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );
 			            		}
 								wp_reset_postdata(); ?> 
 					</section>
