@@ -103,7 +103,7 @@ function stripExcerpt($naturalExcerpt, $limit){
 * @param $postQuantity (opcional) la cantidad de posts a devolver, por default 8
 * @param $offset (opcional) el inicio desde donde empezará a contar los resultados, default no offset.
 **/
-function getPosts($byCategory = "", $postQuantity = 18, $offset=0){
+function getPosts($byCategory = "", $postQuantity = 18, $offset=0, $ignoredIds=null){
 	$args = array(
 		// "category_name" => $byCategory,
 		"orderby" =>  "modified",
@@ -112,6 +112,10 @@ function getPosts($byCategory = "", $postQuantity = 18, $offset=0){
 		"ignore_sticky_posts" => 1,
 		"posts_per_page" => $postQuantity
 	);
+
+	if($ignoredIds!=null){
+		$args['post__not_in'] = $ignoredIds;
+	}
 
 	if(!empty($byCategory)){
 		$args['category_name'] = $byCategory;

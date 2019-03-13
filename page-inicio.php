@@ -2,6 +2,7 @@
 <h1 class="hidden">Look! by Liverpool</h1>
 <?php get_header(); 
  	$postToExclude = array();
+ 	array_push($postToExclude,array_slice(get_option( 'sticky_posts' ), -1, 3));
 	$popularPosts = getPopularPosts(4);
 	if($popularPosts -> have_posts()){ 
 		while($popularPosts -> have_posts()){
@@ -11,14 +12,15 @@
 		wp_reset_postdata();
 	}
 
-	$latestPosts = getPosts("",4);
-	if($latestPosts -> have_posts()){ 
-		while($latestPosts -> have_posts()){
-			$latestPosts->the_post();
-			array_push($postToExclude,get_the_ID());
-		}
-		wp_reset_postdata();
-	}
+	// $latestPosts = getPosts("",4,0,true);
+	// if($latestPosts -> have_posts()){ 
+	// 	while($latestPosts -> have_posts()){
+	// 		$latestPosts->the_post();
+	// 		array_push($postToExclude,get_the_ID());
+	// 	}
+	// 	wp_reset_postdata();
+	// }
+
 ?>
 
 <?php $stickyPost = get_sticky_post_for_home(1);
@@ -34,9 +36,6 @@
 						            </figure>
 						            <figcaption>
 						            <div>
-						            	<?php 
-
-						            	 ?> 
 						                <em><?= getFirstCategory(get_the_ID()); ?></em>
 						                <h2><strong><?= get_the_title(); ?></strong></h2>
 						                <?php if(has_excerpt()) { ?>
@@ -56,13 +55,14 @@
  <!-- <section class="news_home"> -->
 	<section class="inner">
         <h4 class="nice">Lo más nuevo</h4>
-        <?php $latestPosts = getPosts("",4);
+        <?php $latestPosts = getPosts("",4,0,$postToExclude);
          	if($latestPosts -> have_posts()){ ?> 
 	            <section class="list_notes">
 	            	<?php $titleElement = "h2"; ?>
 	            	<?php while($latestPosts -> have_posts()){ 
 	            			$latestPosts -> the_post(); ?> 
 	            			<?php //get_template_part("code_snippets/card_widget_home");
+	            					array_push($postToExclude,get_the_ID());
 	            					include( locate_template( 'code_snippets/card_widget_home.php', false, false ) ); 
 	            			?> 
 	            	<?php } ?> 
@@ -114,7 +114,7 @@
     <section class="joy_tv">
         <section class="inner">
             <h4 class="nice txt_center">Look.TV</h4>
-            	<?php $joyTV_query = getPostsByCategory("look_tv",8, true);
+            	<?php $joyTV_query = getPostsByCategory("look_tv",8, true,$postToExclude);
             			if ($joyTV_query->have_posts()) { ?> 
 	                <section class="carousel_notes">
 	                	<?php while($joyTV_query->have_posts()){ 

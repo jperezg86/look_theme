@@ -3,7 +3,7 @@
         <?= the_post_thumbnail('large'); ?>
     </figure>
     <div>
-
+         
         <em>
         	<?= getFirstCategory(get_the_ID()); ?>
         </em>
