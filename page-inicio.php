@@ -2,7 +2,9 @@
 <h1 class="hidden">Look! by Liverpool</h1>
 <?php get_header(); 
  	$postToExclude = array();
- 	array_push($postToExclude,array_slice(get_option( 'sticky_posts' ), -1, 3));
+ 	// se excluyen primero los stickys
+ 	$postToExclude = array_slice(get_option( 'sticky_posts' ),-3);
+
 	$popularPosts = getPopularPosts(4);
 	if($popularPosts -> have_posts()){ 
 		while($popularPosts -> have_posts()){
@@ -11,6 +13,8 @@
 		}
 		wp_reset_postdata();
 	}
+
+	// print_r(json_encode($postToExclude));
 
 	// $latestPosts = getPosts("",4,0,true);
 	// if($latestPosts -> have_posts()){ 
