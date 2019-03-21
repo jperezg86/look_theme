@@ -1,6 +1,11 @@
 <?php /* Template Name: Page Inicio */ ?>
+
+<?php get_header(); ?>
+
 <h1 class="hidden">Look! by Liverpool</h1>
-<?php get_header(); 
+
+<?php
+
  	$postToExclude = array();
  	// se excluyen primero los stickys
  	$postToExclude = array_slice(get_option( 'sticky_posts' ),-3);
