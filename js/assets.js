@@ -519,6 +519,8 @@ $(document).ready(function() {
 			//se cambia la numeracion por slide
 			$('.numbers b').text( parseInt(realHash)+1 );
 
+			ga('send', 'pageview',  location.pathname);
+
 			
 			return false;
 
@@ -688,6 +690,22 @@ $(document).ready(function() {
 		    }
 		}
 	});
+
+	$('body').on('click','.carousel_notes a', function() {
+			var prod = $(this).find('strong').text();
+			var sku = $(this).attr('href');
+			sku = sku.replace('https://www.liverpool.com.mx/tienda/pdp/','');
+			sku = sku.replace('?utm_source=Look&utm_medium=Menta','');
+			console.log(prod+' - '+sku);
+			ga('send', 'event', {
+			    eventCategory: 'Link to PDP',
+			    eventAction: 'click',
+			    eventLabel: prod+' - '+sku,
+			    transport: 'beacon'
+			});
+	});
+
+
 
 	
 	

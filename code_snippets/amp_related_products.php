@@ -35,7 +35,8 @@
 				    if( !empty($nombre) ){
 				?>
 
-					<a href="https://www.liverpool.com.mx/tienda/pdp/<?= $item  ?>" target="_blank">
+					<!-- <a href="https://www.liverpool.com.mx/tienda/pdp/<?= $item  ?>?utm_source=Look&utm_medium=Menta" target="_blank"> -->
+					<a href="https://look.liverpool.com.mx/redirection.php?name=<?= $nombre; ?>&sku=<?= $item; ?>" target="_blank">
 						<figure>
 							 <amp-img src="<?= $imagen ?>" alt="<?= $nombre ?>" width="3" height="2" class="amp-wp-enforced-sizes" layout="responsive"></amp-img>
 						</figure>
