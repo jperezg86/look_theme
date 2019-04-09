@@ -64,12 +64,21 @@
         				$imagesIds = explode(",",$images['ids']);
         				foreach($imagesIds as $imageId){ 
         					$image = get_post($imageId);
+        					$rich_text = get_field( "descripcion_enriquecida", $image->ID);
         					?>
         					<figure>
 				                <img src="<?= $image->guid; ?>">
 				                <section>
 				                    <p>
-				                       <?= $image->post_content;?>
+				                    	<?php
+				                    	 if( !empty($rich_text) ){ ?>
+				                    		<?= $rich_text; ?> 	
+				                    	<?php
+				                    	 }else{ ?>
+				                    		<?= $image->post_content;?> 	
+				                    	<?php
+				                    	 }
+				                    	?>
 				                    </p>
 				                </section>
 				            </figure>

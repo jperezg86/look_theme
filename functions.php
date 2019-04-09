@@ -33,7 +33,7 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('big', 1000, '', true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -101,7 +101,7 @@ function html5blank_header_scripts()
         wp_register_script( 'jquery', get_template_directory_uri().'/js/jquery.min.js', array(), '2.1.3' ); /* TRUE Es para agregarlo al footer */
         wp_enqueue_script('jquery');
 
-        wp_register_script('scripts', get_template_directory_uri() .'/js/scripts.js', array('jquery'),'1.1.3');
+        wp_register_script('scripts', get_template_directory_uri() .'/js/scripts.js', array('jquery'),'1.1.4');
         wp_enqueue_script('scripts');
 
         wp_localize_script('scripts','liverpool_vars',['ajaxurl'=>admin_url('admin-ajax.php')]);
@@ -187,7 +187,7 @@ function html5blank_styles()
     // wp_register_style('base_style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     // wp_enqueue_style('lookliverpool'); // Enqueue it!
 
-    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'1.2.5','all');
+    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'2.1.0','all');
     wp_enqueue_style('lookliverpool');
 
     wp_register_style('google_fonts', "https://fonts.googleapis.com/css?family=Roboto:400,700,800|Montserrat:700,900",array(),'1.0','all');
