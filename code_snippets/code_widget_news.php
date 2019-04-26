@@ -1,3 +1,9 @@
+<?php
+    $isAMP = ( array_key_exists("amp", $_GET) );
+    if( $isAMP ){
+    }
+    else{
+?>
 <section class="newsletter">
     <section class="inner">
         <article>
@@ -15,3 +21,4 @@
         </article>            
     </section>
 </section>
+<?php } ?>

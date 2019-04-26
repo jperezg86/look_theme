@@ -184,7 +184,7 @@ $image_height = $image_data[2];
 
         "@type": "ImageObject",
 
-        "url": "http://devlook.grazia.es/wp-content/themes/looklliverpool/img/look_amp.png",
+        "url": "https://look.liverpool.com.mx/wp-content/themes/looklliverpool/img/look_amp.png",
 
         "width": 250,
 
