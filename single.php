@@ -131,6 +131,8 @@
 $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
 $image_width = $image_data[1];
 $image_height = $image_data[2];
+$desc = strip_tags(get_the_excerpt());
+$description = str_replace('View Article', '', $desc);
 ?>
 <script type="application/ld+json">
 
@@ -194,7 +196,7 @@ $image_height = $image_data[2];
 
     },
 
-    "description": "<?= get_the_excerpt(); ?>",
+    "description": "<?= $description; ?>",
 
     "articleSection": "<?= $categoryArr['name']; ?>"
 
