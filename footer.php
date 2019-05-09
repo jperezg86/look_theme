@@ -7,9 +7,21 @@
 		                <a href="https://twitter.com/LookByLiverpool" target="_blank"><i class="fab fa-twitter"></i></a>
 		            </section>
 
+
+
 		            <section class="logo">
 		                <a href="#"><img src="<?= get_template_directory_uri() ?>/img/logo.svg" alt="Liverpool"></a>
+		                 <section class="mag_pdf">
+		                	<a href="#" target="_blank" rel="noreferrer">
+		                		<figure>
+		                			<img src="<?= get_template_directory_uri() ?>/img/mag.jpg" alt="Liverpool">
+		                		</figure>
+		                		<span class="btn block">Descarga la revista</span>
+		                	</a>
+		                </section>
 		            </section>
+
+		           
 
 		            <section class="legal">
 		                <a href="https://assets.liverpool.com.mx/ayuda/?_ga=2.240192835.1145771125.1548771617-267814312.1546458703&_gac=1.149331268.1547834706.Cj0KCQiAj4biBRC-ARIsAA4WaFgYS8WSeHPEhHDbrf7YvCmt-h9SIJ51phUxidLUVHcRo1ztXdt-4bgaAhhHEALw_wcB#/sec/otros-temas/terminos-y-condiciones/aviso-de-privacidad-integral">Términos y condiciones</a>
@@ -41,15 +53,6 @@
 		</script>
 		<?php } ?>
 		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133903684-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'UA-133903684-1');
-		</script> -->
 
 	</body>
 </html>
