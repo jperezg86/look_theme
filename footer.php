@@ -25,12 +25,11 @@
 									<section class="mag_pdf">
 					                	<a href="<?= $file['url'] ?>" target="_blank" rel="noreferrer">
 					                		<figure>
-					                			<?= the_post_thumbnail('large') ?>
+					                			<?= the_post_thumbnail('medium') ?>
 					                		</figure>
-					                		<span class="btn block">Descarga la revista</span>
+					                		<span class="btn block">Descargar</span>
 					                	</a>
 		                			</section>
-									
 						<?php	}
 								wp_reset_postdata();
 							}  ?>

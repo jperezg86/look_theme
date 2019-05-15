@@ -14,18 +14,18 @@ $.fn.extend({
 
 
 
-var share = $('.share');
-var pub2 = $('.to_fix_2');
-var pubH = $('.to_fix_home');
-var pub = $('.to_fix');
-var tope = 0;
-var tope2 = 0;
-var tope3 = 0;
-var topeH = 0;
-var start = 0;
-var start2 = 0;
-var start3 = 0;
-var startH = 0;
+// var share = $('.share');
+// var pub2 = $('.to_fix_2');
+// var pubH = $('.to_fix_home');
+// var pub = $('.to_fix');
+// var tope = 0;
+// var tope2 = 0;
+// var tope3 = 0;
+// var topeH = 0;
+// var start = 0;
+// var start2 = 0;
+// var start3 = 0;
+// var startH = 0;
 var supercontador = 0;
 var introtext = 0;
 
@@ -194,92 +194,92 @@ $(document).ready(function() {
 	}
 	else{
 		
-			function onElementHeightChange(elm, callback){
-				var lastHeight = elm.clientHeight, newHeight;
-				(function run(){
-					newHeight = elm.clientHeight;
-					if( lastHeight != newHeight )
-						callback();
-					lastHeight = newHeight;
+			// function onElementHeightChange(elm, callback){
+			// 	var lastHeight = elm.clientHeight, newHeight;
+			// 	(function run(){
+			// 		newHeight = elm.clientHeight;
+			// 		if( lastHeight != newHeight )
+			// 			callback();
+			// 		lastHeight = newHeight;
 			
-					if( elm.onElementHeightChangeTimer )
-						clearTimeout(elm.onElementHeightChangeTimer);
+			// 		if( elm.onElementHeightChangeTimer )
+			// 			clearTimeout(elm.onElementHeightChangeTimer);
 			
-					elm.onElementHeightChangeTimer = setTimeout(run, 200 );
-				})();
-			}
+			// 		elm.onElementHeightChangeTimer = setTimeout(run, 200 );
+			// 	})();
+			// }
 			
 			
-			onElementHeightChange(document.body, function(){
+			// onElementHeightChange(document.body, function(){
 				
-				$('.to_fix').removeClass('fixed');
-				$('.note .share').removeClass('fixed');
+			// 	$('.to_fix').removeClass('fixed');
+			// 	$('.note .share').removeClass('fixed');
 				
-				if( $('.to_fix').length ){
-					$('.to_fix').removeClass('absolute');
-					$('.to_fix').removeClass('fixed');
-					pub = $('.to_fix');
-					tope = ( $('.to_fix').parent().offset().top + $('.to_fix').parent().height() ) - $('.to_fix').height() - 115;
-					start = $('.to_fix').offset().top - 75;
-				}
+			// 	if( $('.to_fix').length ){
+			// 		$('.to_fix').removeClass('absolute');
+			// 		$('.to_fix').removeClass('fixed');
+			// 		pub = $('.to_fix');
+			// 		tope = ( $('.to_fix').parent().offset().top + $('.to_fix').parent().height() ) - $('.to_fix').height() - 115;
+			// 		start = $('.to_fix').offset().top - 75;
+			// 	}
 
 					
 				
-				if( $('.share').length ){
-					share = $('.share');
-					start3 = $('.share').offset().top - 115;
-					tope3 = ( $('.share').parent().offset().top + $('.share').parent().height() ) - $('.share').height() - 70;
-				}
+			// 	if( $('.share').length ){
+			// 		share = $('.share');
+			// 		start3 = $('.share').offset().top - 115;
+			// 		tope3 = ( $('.share').parent().offset().top + $('.share').parent().height() ) - $('.share').height() - 70;
+			// 	}
 				
-				$(window).trigger('scroll');
-			});
+			// 	$(window).trigger('scroll');
+			// });
 					
 					
 				
-		if( $('.to_fix').length ){	
-			$(window).on('scroll.pub',function(){	
-				var scrollTop = $(window).scrollTop();
+		// if( $('.to_fix').length ){	
+		// 	$(window).on('scroll.pub',function(){	
+		// 		var scrollTop = $(window).scrollTop();
 				
 					
-				if(scrollTop >= start && scrollTop < tope){
-					pub.removeClass('absolute');
-					pub.addClass('fixed');
-				}
-				else if(scrollTop >= tope){
-					pub.removeClass('fixed');
-					pub.addClass('absolute');
-				}
-				else{
-					pub.removeClass('fixed');
-					pub.removeAttr('style');
-					pub.removeClass('absolute');
-				}
-			});
-		}
+		// 		if(scrollTop >= start && scrollTop < tope){
+		// 			pub.removeClass('absolute');
+		// 			pub.addClass('fixed');
+		// 		}
+		// 		else if(scrollTop >= tope){
+		// 			pub.removeClass('fixed');
+		// 			pub.addClass('absolute');
+		// 		}
+		// 		else{
+		// 			pub.removeClass('fixed');
+		// 			pub.removeAttr('style');
+		// 			pub.removeClass('absolute');
+		// 		}
+		// 	});
+		// }
 			
 	
-		if( $('.share').length ){	
-			$(window).on('scroll.share',function(){	
-				var scrollTop = $(window).scrollTop();
+		// if( $('.share').length ){	
+		// 	$(window).on('scroll.share',function(){	
+		// 		var scrollTop = $(window).scrollTop();
 				
-				if(scrollTop >= start3 && scrollTop < tope3){
-				//if(scrollTop >= start){
-					share.addClass('fixed');
-					share.removeClass('absolute');
-					share.css('margin-right',0);
-				}
-				else if(scrollTop >= tope3){
-					share.removeClass('fixed');
-					share.addClass('absolute');
-					share.removeAttr('style');
-				}
-				else{
-					share.removeClass('fixed');
-					share.removeAttr('style');
-					share.removeClass('absolute');
-				}
-			});			
-		}
+		// 		if(scrollTop >= start3 && scrollTop < tope3){
+		// 		//if(scrollTop >= start){
+		// 			share.addClass('fixed');
+		// 			share.removeClass('absolute');
+		// 			share.css('margin-right',0);
+		// 		}
+		// 		else if(scrollTop >= tope3){
+		// 			share.removeClass('fixed');
+		// 			share.addClass('absolute');
+		// 			share.removeAttr('style');
+		// 		}
+		// 		else{
+		// 			share.removeClass('fixed');
+		// 			share.removeAttr('style');
+		// 			share.removeClass('absolute');
+		// 		}
+		// 	});			
+		// }
 		
 		
 	//if( !$('.inner.gallery').length ){
@@ -847,6 +847,17 @@ $(document).ready(function() {
 	});
 	//init primer tab
 	$('.tabs > section a:first').trigger('click');
+
+
+
+	$('.mag_pdf a').click(function(){
+		ga('send', 'event', {
+		    eventCategory: 'Magazine PDF View',
+		    eventAction: 'click',
+		    eventLabel: document.title,
+		    transport: 'beacon'
+		});
+	});
 	
 		
 		

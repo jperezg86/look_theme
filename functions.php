@@ -121,7 +121,7 @@ function html5blank_header_scripts()
         // wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquery'), '1.0.0');
         // wp_enqueue_script('stratum');
 
-        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.5');
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.6');
         wp_enqueue_script('assets');
 
         // if(is_category()){
@@ -187,7 +187,7 @@ function html5blank_styles()
     // wp_register_style('base_style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     // wp_enqueue_style('lookliverpool'); // Enqueue it!
 
-    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'2.1.2','all');
+    wp_register_style('lookliverpool', get_template_directory_uri() .'/styles/liverpool_look.css',array(),'2.1.3','all');
     wp_enqueue_style('lookliverpool');
 
     wp_register_style('google_fonts', "https://fonts.googleapis.com/css?family=Roboto:400,700,800|Montserrat:700,900",array(),'1.0','all');

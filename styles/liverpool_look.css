@@ -243,10 +243,10 @@ nav.open{z-index: 4;opacity: 1;transform: translate3d(0,0,0) rotate(0deg) perspe
 /* footer */
 footer{width: 100%;background: #474546;min-height: 100px;position: relative;z-index: 1;padding: 30px 0;}
 footer .inner{position: initial;justify-content: unsafe;}
-footer .logo{/* position:absolute; */width: 160px;height:auto;left: calc(50% - 80px);top:30px;display: flex;align-items: center;flex-wrap: wrap;justify-self: center;margin: 0 -120px 0 0;}
-footer .logo > a{display:block;margin: 0 0 20px;}
+footer .logo{height:auto;left: calc(50% - 80px);top:30px;display: flex;align-items: center;flex-wrap: wrap;justify-self: center;margin: 0 -120px 0 0;}
+footer .logo > a{display:block;margin: 0 40px 0 0;width: 150px;}
 footer .logo > a img{width:100%;height:auto;display:block;filter: invert(1);}
-footer .mag_pdf{display:flex;flex-wrap:wrap;text-align: center;}
+footer .mag_pdf{display:flex;flex-wrap:wrap;text-align: center;width: 110px;}
 footer .mag_pdf figure{display:block;width: 100%;}
 footer .mag_pdf figure img{ width:100%; height:auto;}
 footer .legal{display:flex;align-items:center;flex-wrap:wrap;justify-self: right;}
@@ -668,8 +668,10 @@ header.open .open_search{opacity:0;display: none;}
 .open_nav{display: flex;position: absolute;left: 5px;}
 
 footer .inner{ justify-content:center;}
-footer .logo{position: inherit;margin: 30px;width: 100%;padding: 0 25%;}
-footer .legal a{ display:block; margin:0; text-align:center;}
+footer .logo{position: inherit;margin: 30px;width: 100%;padding: 0 25%;justify-content: center;}
+footer .logo > a{margin:0 0 20px}
+footer .legal a{display:block;margin: 0 10px;text-align:center;}
+footer .mag_pdf{width:100%}
 
 .top_note{margin: 0 0 100px;width: 100%;}
 .top_note .inner{ width:100%; padding:0;}
