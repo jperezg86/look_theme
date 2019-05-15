@@ -334,7 +334,6 @@ function getLatestPublishedMagazine(){
 			'posts_per_page' => 1, 
 			'post_type' => 'revista-impresa',
 			'post_status' => 'publish',
-			'meta_key' => 'wpb_post_views_count', 
 			'orderby' => 'publish_date', 
 			'order' => 'DESC'));
 	return $query;
