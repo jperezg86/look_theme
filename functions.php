@@ -427,6 +427,8 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
+add_action('init', 'create_post_type_revista_impresa'); // Add our HTML5 Blank Custom Post Type
+
 // add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
@@ -478,25 +480,25 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-/*function create_post_type_html5()
+function create_post_type_revista_impresa()
 {
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
+    register_taxonomy_for_object_type('category', 'revista-impresa'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'revista-impresa');
+    register_post_type('revista-impresa', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'lookliverpool'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'lookliverpool'),
+            'name' => __('Revista Impresa', 'lookliverpool'), // Rename these to suit
+            'singular_name' => __('Revista Impresa', 'lookliverpool'),
             'add_new' => __('Add New', 'lookliverpool'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'lookliverpool'),
+            'add_new_item' => __('Add New Revista Impresa', 'lookliverpool'),
             'edit' => __('Edit', 'lookliverpool'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'lookliverpool'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'lookliverpool'),
-            'view' => __('View HTML5 Blank Custom Post', 'lookliverpool'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'lookliverpool'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'lookliverpool'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'lookliverpool'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'lookliverpool')
+            'edit_item' => __('Edit Revista Impresa', 'lookliverpool'),
+            'new_item' => __('New Revista Impresa', 'lookliverpool'),
+            'view' => __('View Revista Impresa', 'lookliverpool'),
+            'view_item' => __('View Revista Impresa', 'lookliverpool'),
+            'search_items' => __('Search Revistas Impresas', 'lookliverpool'),
+            'not_found' => __('No Revistas Impresas found', 'lookliverpool'),
+            'not_found_in_trash' => __('No Revistas Impresas Trash', 'lookliverpool')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
@@ -513,7 +515,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
             'category'
         ) // Add Category and Post Tags support
     ));
-}*/
+}
 
 /*------------------------------------*\
     ShortCode Functions
@@ -586,6 +588,16 @@ function bm_get_post_gallery( $gallery, $post ) {
     return $gallery;
 }
 // add_filter( 'get_post_gallery', 'bm_get_post_gallery', 10, 2 );
+
+
+
+function wpse_change_featured_img_url() {
+  return 'http://look.liverpool.com.mx/wp-content/uploads';
+}
+
+if(WP_DEV_MODE) {
+    add_filter( 'pre_option_upload_url_path', 'wpse_change_featured_img_url' );
+}
 
 
 

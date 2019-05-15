@@ -10,15 +10,30 @@
 
 
 		            <section class="logo">
-		                <a href="#"><img src="<?= get_template_directory_uri() ?>/img/logo.svg" alt="Liverpool"></a>
-		                 <section class="mag_pdf">
-		                	<a href="#" target="_blank" rel="noreferrer">
-		                		<figure>
-		                			<img src="<?= get_template_directory_uri() ?>/img/mag.jpg" alt="Liverpool">
-		                		</figure>
-		                		<span class="btn block">Descarga la revista</span>
-		                	</a>
-		                </section>
+
+		                <a href="#">
+		                		<img src="<?= get_template_directory_uri() ?>/img/logo.svg" alt="Liverpool">
+		                </a>
+
+		                <?php
+		                	$magPost = getLatestPublishedMagazine();
+		                	if($magPost -> have_posts()){ 
+								while($magPost -> have_posts()){
+									$magPost->the_post(); 
+									$file = get_field('file_revista_impresa');
+									?>
+									<section class="mag_pdf">
+					                	<a href="<?= $file['url'] ?>" target="_blank" rel="noreferrer">
+					                		<figure>
+					                			<?= the_post_thumbnail('large') ?>
+					                		</figure>
+					                		<span class="btn block">Descarga la revista</span>
+					                	</a>
+		                			</section>
+									
+						<?php	}
+								wp_reset_postdata();
+							}  ?>
 		            </section>
 
 		           
