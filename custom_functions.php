@@ -340,6 +340,23 @@ function getLatestPublishedMagazine(){
 }
 
 
+
+function getPrintedEditions($postQuantity = 8, $offset = 0){
+	$args = array(
+		"orderby" =>  "modified",
+		"post_type" => 'revista-impresa',
+		"post_status" => "publish",
+		'order' => 'DESC',
+		"posts_per_page" => $postQuantity
+	);
+
+	if($offset > 0){
+		$args["offset"] = $offset;
+	}
+	return new WP_Query($args);
+}
+
+
 function returnlimit() {
 	return 'LIMIT 4';
 }
