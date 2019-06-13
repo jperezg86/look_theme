@@ -121,7 +121,7 @@ function html5blank_header_scripts()
         // wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquery'), '1.0.0');
         // wp_enqueue_script('stratum');
 
-        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.6');
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.8');
         wp_enqueue_script('assets');
 
         // if(is_category()){
@@ -192,6 +192,10 @@ function html5blank_styles()
 
     wp_register_style('google_fonts', "https://fonts.googleapis.com/css?family=Roboto:400,700,800|Montserrat:700,900",array(),'1.0','all');
     wp_enqueue_style('google_fonts');
+
+
+    wp_register_style('animate', "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+    wp_enqueue_style('animate');
 
     wp_register_style('fontawesome', "https://use.fontawesome.com/releases/v5.2.0/css/all.css", array(), '1.0', 'all');
     wp_style_add_data("fontawesome","integrity","sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ");

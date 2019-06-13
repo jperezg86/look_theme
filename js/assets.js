@@ -967,5 +967,59 @@ $(document).ready(function() {
 	
 
 
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	};
+	function checkCookie() {
+		var newsLightbox = getCookie("newsLightbox");
+		if (newsLightbox != "") {
+			//no hacer nada
+		}
+		else{
+			//lanzar lightbo
+			setCookie('newsLightbox',true,15);
+		}
+	};
+	checkCookie();
+
+	$('.lightbox_news input[type="email"]').attr('placeholder','Ingresa tu e-mail');
+	$('.lightbox_news input[type="submit"]').attr('value','¡Suscríbete ya!');
+
+
+	$('.lightbox_news .envelope').click(function(e){
+		e.preventDefault();
+		$('.lightbox_news').hide();
+	});
+
+
+	//just for test
+	$('.copyright').click(function(){
+		$('.lightbox_news').css('display','flex');
+	});
+	
+
+
+	
+
 	
 });

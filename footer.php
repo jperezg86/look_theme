@@ -66,6 +66,26 @@
 			
 		</script>
 		<?php } ?>
+
+
+		<article class="lightbox_news animated fadeIn" style="display: none;">
+			<a href="#" class="close"><span></span></a>
+			<div class="envelope"></div>
+			<section class=" animated fadeInUp">
+				<figure>
+					<img src="<?= get_template_directory_uri(); ?>/img/lightimg_news.jpg" alt="Suscríbete">
+				</figure>
+				<div>
+					<img src="<?= get_template_directory_uri(); ?>/img/logo.svg" alt="Logo">
+					<p>
+						Historias increibles directo a tu <strong>e-mail</strong>
+					</p>
+					<?php 
+		                echo do_shortcode( '[email-subscribers namefield="NO" desc="" group="Public"]');
+		            ?>
+	            </div>
+			</section>	
+		</article>
 		
 
 	</body>

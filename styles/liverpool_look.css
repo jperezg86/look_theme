@@ -582,6 +582,23 @@ img.expanded{width:auto;position: fixed!important;top: 1%!important;bottom: 10%!
 .post404 .opts_404 article a{display:block;line-height:40px;background:#e10098;color:#fff;/* width:200px; */margin: 10px auto 20px;border-radius: 5px;}
 
 
+
+.lightbox_news{position:fixed;display:flex;flex-wrap:wrap;background: rgba(71, 69, 70, .8);z-index:6;width:100%;height:100%;top: 0;left: 0;align-items: center;justify-content: center;animation-delay: .5s;}
+.lightbox_news .envelope{position:absolute;width:100%;}
+.lightbox_news .close span:after,.lightbox_news .close span:before{background:#fff;}
+.lightbox_news > section{max-width: 790px;overflow:hidden;background:#fff;display: flex;width: 90%;box-shadow: 0 0 30px rgba(0,0,0,.6);}
+.lightbox_news section figure{width:50%;}
+.lightbox_news section figure img{width:100%; height:100%; object-fit:cover;}
+.lightbox_news section > div{ padding:20px;width:50%;}
+.lightbox_news section > div img{ width:150px; display:block; margin: 0 auto 40px;}
+.lightbox_news section > div p{font-size: 1.4em;text-align: center;padding: 0 15%;letter-spacing: 1px;}
+.lightbox_news section > div p strong{ font-weight:900;}
+.lightbox_news form label{display:none;}
+.lightbox_news form input[type="email"]{border-bottom:1px solid #333;margin-top:40px;text-align: center;font-size: 1.2em!important;}
+.lightbox_news form input[type="submit"]{ border-radius:10em;font-size:1.2em;}
+
+
+
 /* ///// AMP ///// */
 html[amp] header ul{display: none;}
 html[amp] header .back{display: none;}
@@ -606,6 +623,10 @@ html[amp] .experiencia figure * *{object-fit: contain;}
 html[amp] .top_note a figure * *{object-fit:cover;}
 html[amp] .list .card figure * *{object-fit:cover;}
 /*html[amp] .inner.note + .experiencia{display: none}*/
+
+
+
+
 
 
 /* ///// responsive ///// */
@@ -822,6 +843,12 @@ nav .social_links a{height: 60px;line-height: 60px;color: #333;width: 60px;}
 menu{ position:relative; height:100%; overflow:auto; padding-bottom:50px; -webkit-overflow-scrollig:tocuh;}
 nav ul li ul{position: initial;top:inherit;max-height: initial;width: 100%;padding: 0;margin: 0;background: #f00;z-index: 4;left: 21px;opacity: 1;box-shadow: none;}
 nav ul li ul:after{display:none;}
+
+.lightbox_news > section{flex-wrap:wrap;}
+.lightbox_news section figure{width:100%; height:200px;}
+.lightbox_news section figure img{ object-position:top center;}
+.lightbox_news section div{ width:100%;}
+.lightbox_news{padding-top:45px; align-items:baseline;}
 }
 
 
