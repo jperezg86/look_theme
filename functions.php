@@ -121,7 +121,7 @@ function html5blank_header_scripts()
         // wp_register_script('stratum', get_template_directory_uri().'/js/stratum.min.js', array('jquery'), '1.0.0');
         // wp_enqueue_script('stratum');
 
-        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.1.8');
+        wp_register_script("assets", get_template_directory_uri() .'/js/assets.js',array('jquery'),'1.2.0');
         wp_enqueue_script('assets');
 
         // if(is_category()){

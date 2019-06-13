@@ -997,7 +997,11 @@ $(document).ready(function() {
 		}
 		else{
 			//lanzar lightbo
-			setCookie('newsLightbox',true,15);
+			setCookie('newsLightbox',true,7);
+			setTimeout(function(){
+				$('.lightbox_news').css('display','flex');
+			},5000);
+			
 		}
 	};
 	checkCookie();
