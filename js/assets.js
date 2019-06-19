@@ -545,7 +545,7 @@ $(document).ready(function() {
 			// console.log( inde );
 
 			if( $('.thumbs .owl-item').length-1 == inde ){
-				console.log('no_more');	
+				window.location.hash = '#1';
 			}
 			else{
 				var hash = window.location.hash;
@@ -568,12 +568,10 @@ $(document).ready(function() {
 	
 		$('.prev_photo').click(function(e){
 			e.preventDefault();
-
 			var inde = window.location.hash;
 			inde = inde.replace('#','');
-
 			if( inde === "0" ){
-				console.log('no_more');	
+				window.location.hash = "#" +  ($('.thumbs .owl-item').length-1);
 			}
 			else{
 				var hash = window.location.hash;
