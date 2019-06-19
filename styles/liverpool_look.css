@@ -631,7 +631,7 @@ html[amp] .list .card figure * *{object-fit:cover;}
 /*html[amp] .inner.note + .experiencia{display: none}*/
 
 
-
+.ediciones_ateriores{display: flex;width: 100%;margin: 12px 0 0;white-space: nowrap;align-items: center;justify-content: center;color: #a2a2a2;line-height: 25px;}
 
 
 /* ///// responsive ///// */

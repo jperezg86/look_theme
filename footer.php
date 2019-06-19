@@ -29,6 +29,7 @@
 					                		</figure>
 					                		<span class="btn block">Descargar</span>
 					                	</a>
+					                	<a href="<?= get_site_url(); ?>/ediciones-impresas/" class="ediciones_ateriores">Ediciones anteriores</a>
 		                			</section>
 						<?php	}
 								wp_reset_postdata();
@@ -78,7 +79,7 @@
 				<div>
 					<img src="<?= get_template_directory_uri(); ?>/img/logo.svg" alt="Logo">
 					<p>
-						Historias increibles directo a tu <strong>e-mail</strong>
+						Historias increíbles directo a tu <strong>e-mail</strong>
 					</p>
 					<?php 
 		                echo do_shortcode( '[email-subscribers namefield="NO" desc="" group="Public"]');
