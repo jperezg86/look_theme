@@ -334,9 +334,29 @@ function getLatestPublishedMagazine(){
 			'posts_per_page' => 1, 
 			'post_type' => 'revista-impresa',
 			'post_status' => 'publish',
-			'orderby' => 'publish_date', 
+			'meta_key'	=> 'fecha_edicion_impresa',
+			'orderby'	=> 'meta_value', 
 			'order' => 'DESC'));
 	return $query;
+}
+
+
+
+function getPrintedEditions($postQuantity = 8, $offset = 0){
+	$args = array(
+		// "orderby" =>  "modified",
+		"post_type" => 'revista-impresa',
+		"post_status" => "publish",
+		'meta_key'	=> 'fecha_edicion_impresa',
+		'orderby'	=> 'meta_value',
+		'order' => 'DESC',
+		"posts_per_page" => $postQuantity
+	);
+
+	if($offset > 0){
+		$args["offset"] = $offset;
+	}
+	return new WP_Query($args);
 }
 
 
