@@ -100,6 +100,8 @@
         </section>
     <!-- </section> -->
 
+    
+
     <section class="news_home">
 		<section class="inner">
             <h4 class="nice">Noticias</h4>

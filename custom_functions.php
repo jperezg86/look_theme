@@ -298,29 +298,39 @@ function wpb_set_post_views($postID) {
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 
-function wpb_track_post_views ($post_id) {
-    if ( !is_single() ) return;
-    if ( empty ( $post_id) ) {
-        global $post;
-        $post_id = $post->ID;    
-    }
-    wpb_set_post_views($post_id);
-}
+// function wpb_track_post_views ($post_id) {
+//     if ( !is_single() ) return;
+//     if ( empty ( $post_id) ) {
+//         global $post;
+//         $post_id = $post->ID;    
+//     }
+//     wpb_set_post_views($post_id);
+// }
 
 
-
+//se muestra lo mas leido de la semana
 function getPopularPosts($limit){
 	add_filter("post_limits","returnlimit");
+
+ 
 	$query = new WP_Query( 
 		array(
 			'posts_per_page' => $limit, 
 			'post_type' => 'post',
+			'date_query' => array(
+                array(
+                        'column' => 'post_date_gmt',
+                        'after' => '1 week ago',
+                )
+            ),
 			'post_status' => 'publish',
 			'ignore_sticky_posts'=>1,
 			'nopaging' => true,
 			'meta_key' => 'wpb_post_views_count', 
 			'orderby' => 'meta_value_num', 
-			'order' => 'DESC'));
+			'order' => 'DESC'
+		)
+	);
 
 	remove_filter("post_limits","returnlimit");
 	return $query;

@@ -596,8 +596,8 @@ img.expanded{width:auto;position: fixed!important;top: 1%!important;bottom: 10%!
 .lightbox_news form label{display:none;}
 .lightbox_news form input[type="email"]{border-bottom:1px solid #333;margin-top:40px;text-align: center;font-size: 1.2em!important;}
 .lightbox_news form input[type="submit"]{ border-radius:10em;font-size:1.2em;}
-.ediciones{display:flex;width:100%;margin:40px 0 100px;justify-content:space-between;flex-wrap: wrap;}
-.ediciones a{/* box-shadow: 0 0 10px rgba(0,0,0,.2); */padding: 20px;margin: 0 0 30px;width: 23%;border: 1px solid #e6e6e6;background: #eee;}
+.ediciones{display:flex;width: 100%;margin:40px 0 100px;justify-content: baseline;flex-wrap: wrap;}
+.ediciones a{/* box-shadow: 0 0 10px rgba(0,0,0,.2); */padding: 20px;margin: 0 0 30px;width: 23%;border: 1px solid #e6e6e6;background: #eee;margin: 0 1% 2% 1%;}
 .ediciones figure{ width:100%;}
 .ediciones figure img{ width:100%;}
 .ediciones a strong{text-align:center;display:block;padding:20px 0;font-weight:900;color:#333;font-size:1.2em;text-transform: capitalize;}
@@ -669,7 +669,7 @@ aside,.nota aside{width:100%;display:block;margin:10px 0;background: #fff;paddin
 
 .col_aside{ width:100%;}
 
-.inner,.inner.note{width:100%;padding: 0 4%;}
+.inner,.inner.note{width:100%;padding: 0 4%;overflow: hidden;}
 
 .nice{ padding:0 10%}
 
@@ -700,7 +700,7 @@ footer .legal a{display:block;margin: 0 10px;text-align:center;}
 footer .mag_pdf{width:100%}
 
 .top_note{margin: 0 0 100px;width: 100%;}
-.top_note .inner{ width:100%; padding:0;}
+.top_note .inner{width:100%;padding:0;overflow: initial;}
 .top_note a{flex-wrap: wrap;height: auto;}
 .top_note a figure{width: 100%;height: auto;position: relative;height: 360px;}
 .top_note a figure img{ width:100%; height:100%; object-fit:cover;}
@@ -854,6 +854,8 @@ nav ul li ul:after{display:none;}
 .lightbox_news section figure img{ object-position:top center;}
 .lightbox_news section div{width:100%;}
 .lightbox_news{padding-top:45px;align-items:baseline;overflow: auto;}
+
+.ediciones{justify-content:space-between;}
 .ediciones a{width:48%; padding:10px; margin:0 0 10px}
 }
 
