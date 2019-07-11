@@ -320,7 +320,7 @@ function getPopularPosts($limit){
 			'date_query' => array(
                 array(
                         'column' => 'post_date_gmt',
-                        'after' => '1 week ago',
+                        'before' => '1 week ago',
                 )
             ),
 			'post_status' => 'publish',
