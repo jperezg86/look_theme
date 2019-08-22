@@ -634,6 +634,16 @@ html[amp] .list .card figure * *{object-fit:cover;}
 .ediciones_ateriores{display: flex;width: 100%;margin: 12px 0 0;white-space: nowrap;align-items: center;justify-content: center;color: #a2a2a2;line-height: 25px;}
 
 
+.wpulike{display: flex;width: 50px;height: 50px;align-items: center;justify-content: center;background:#eee; border-radius:10em; overflow:hidden;}
+.wpulike-default .count-box{position:absolute;bottom: 6px;font-size:.8em;background:none;border:none;left: 0;box-shadow: none;line-height: normal;padding: 0;margin: 0;width: 100%;text-align: center;}
+.wpulike-default .count-box:before{ display:none;}
+.wpulike-default .wp_ulike_btn{background:none;color:#333;height: 100%;width: 100%;position: absolute;left: 0;top: 0;font-size: 1.2em;z-index: 1;}
+.wpulike-default .wp_ulike_btn:after{font:900 1em 'Font Awesome 5 Free';content:"\f004";background: none;top: 18px;filter: none!important;}
+.wpulike-default .wp_ulike_is_liked .wp_ulike_btn{color: #fb17b2;}
+.wpulike-notification{display:none}
+.the_content .wpulike{display:none;}
+
+
 /* ///// responsive ///// */
 
 

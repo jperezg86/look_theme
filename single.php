@@ -20,6 +20,8 @@
 					// else{
 						get_template_part("code_snippets/share_articles");
 					//}
+						
+					if(function_exists('wp_ulike')) wp_ulike('get');
 				?>
 		    </div>
 	    </section>

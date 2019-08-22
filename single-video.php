@@ -7,7 +7,10 @@
 		<section class="share_container">
 		    <span class="share_opener"><i class="fas fa-share-alt"></i></span>
 		    <div class="share">
-		    	<?php get_template_part("code_snippets/share_articles"); ?> 
+		    	<?php 
+			    	get_template_part("code_snippets/share_articles"); 
+			    	if(function_exists('wp_ulike')) wp_ulike('get');
+		    	?> 
 		    </div>
 	    </section>
 
