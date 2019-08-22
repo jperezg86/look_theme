@@ -867,6 +867,9 @@ nav ul li ul:after{display:none;}
 
 .ediciones{justify-content:space-between;}
 .ediciones a{width:48%; padding:10px; margin:0 0 10px}
+
+.wpulike{position:fixed;bottom: 90px;box-shadow:0 0 10px rgba(0,0,0,.3); transition:.4s}
+.share.items_show .wpulike{bottom:330px}
 }
 
 
