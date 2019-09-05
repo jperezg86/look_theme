@@ -10,14 +10,14 @@
  	// se excluyen primero los stickys
  	$postToExclude = array_slice(get_option( 'sticky_posts' ),-3);
 
-	$popularPosts = getPopularPosts(4);
-	if($popularPosts -> have_posts()){ 
-		while($popularPosts -> have_posts()){
-			$popularPosts->the_post();
-			array_push($postToExclude,get_the_ID());
-		}
-		wp_reset_postdata();
-	}
+	// $popularPosts = getPopularPosts(4);
+	// if($popularPosts -> have_posts()){ 
+	// 	while($popularPosts -> have_posts()){
+	// 		$popularPosts->the_post();
+	// 		array_push($postToExclude,get_the_ID());
+	// 	}
+	// 	wp_reset_postdata();
+	// }
 
 	// print_r(json_encode($postToExclude));
 
@@ -86,11 +86,12 @@
 		<section class="inner">
             <h4 class="nice">Lo más leído</h4>
             <?php $popularPosts = getPopularPosts(4);
-             	if($popularPosts -> have_posts()){ ?> 
+            	// echo json_encode($popularPosts);
+             	if(count($popularPosts) > 0 ) { ?> 
 		            <section class="list_notes">
 		            	<?php $titleElement = "h3"; ?>
-		            	<?php while($popularPosts -> have_posts()){ 
-		            			$popularPosts -> the_post(); ?> 
+		            	<?php foreach ($popularPosts as $post) {
+		            			setup_postdata($post); ?> 
 		            			<?php include( locate_template( 'code_snippets/card_widget_home.php', false, false ) );  ?>
 		            	<?php } ?> 
 		            </section>

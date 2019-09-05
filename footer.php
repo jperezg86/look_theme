@@ -2,9 +2,9 @@
 		    	<section class="inner">
 		            <section class="social_links">
 		                <a href="https://www.facebook.com/lookbyliverpool/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-		                <a href="https://www.instagram.com/lookbyliverpool/" target="_blank"><i class="fab fa-instagram"></i></a>
-		                <a href="https://www.pinterest.es/lookbyliverpool/" target="_blank"><i class="fab fa-pinterest"></i></a>
-		                <a href="https://twitter.com/LookByLiverpool" target="_blank"><i class="fab fa-twitter"></i></a>
+		                <a href="https://www.instagram.com/liverpool_mexico/" target="_blank"><i class="fab fa-instagram"></i></a>
+		                <a href="https://www.pinterest.com.mx/liverpoolmexico/" target="_blank"><i class="fab fa-pinterest"></i></a>
+		                <a href="https://twitter.com/LiverpoolMexico" target="_blank"><i class="fab fa-twitter"></i></a>
 		            </section>
 
 
@@ -87,7 +87,5 @@
 	            </div>
 			</section>	
 		</article>
-		
-
 	</body>
 </html>

@@ -310,30 +310,20 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 //se muestra lo mas leido de la semana
 function getPopularPosts($limit){
-	add_filter("post_limits","returnlimit");
 
- 
-	$query = new WP_Query( 
-		array(
-			'posts_per_page' => $limit, 
+	$analytics = initializeAnalytics();
+	$profile = getFirstProfileId($analytics);
+	$results = getResults($analytics, $profile, $limit);
+
+	$args = array(
+			// 'posts_per_page' => $limit, 
 			'post_type' => 'post',
-			'date_query' => array(
-                array(
-                        'column' => 'post_date_gmt',
-                        'before' => '1 week ago',
-                )
-            ),
 			'post_status' => 'publish',
-			'ignore_sticky_posts'=>1,
-			'nopaging' => true,
-			'meta_key' => 'wpb_post_views_count', 
-			'orderby' => 'meta_value_num', 
-			'order' => 'DESC'
-		)
-	);
+			'post_name__in' => $results
+		);
 
-	remove_filter("post_limits","returnlimit");
-	return $query;
+	// echo json_encode($args);
+	return get_posts($args);
 
 }
 
@@ -381,6 +371,94 @@ add_action('wp_ajax_get_more_notes', 'get_more_notes');
 add_action('wp_ajax_nopriv_get_info_product','get_info_product');
 add_action('wp_ajax_get_info_product', 'get_info_product');
 add_action( 'wp_head', 'wpb_track_post_views');
+
+
+function initializeAnalytics()
+{
+  // Creates and returns the Analytics Reporting service object.
+
+  // Use the developers console and download your service account
+  // credentials in JSON format. Place them in this directory or
+  // change the key file location if necessary.
+  $KEY_FILE_LOCATION = __DIR__ . '/service-account-credentials.json';
+
+  // Create and configure a new client object.
+  $client = new Google_Client();
+  $client->setApplicationName("Hello Analytics Reporting");
+  $client->setAuthConfig($KEY_FILE_LOCATION);
+  $client->setScopes(['https://www.googleapis.com/auth/analytics.readonly']);
+  $analytics = new Google_Service_Analytics($client);
+
+  return $analytics;
+}
+
+function getFirstProfileId($analytics) {
+  // Get the user's first view (profile) ID.
+
+  // Get the list of accounts for the authorized user.
+  $accounts = $analytics->management_accounts->listManagementAccounts();
+
+  if (count($accounts->getItems()) > 0) {
+    $items = $accounts->getItems();
+    $firstAccountId = $items[0]->getId();
+
+    // Get the list of properties for the authorized user.
+    $properties = $analytics->management_webproperties
+        ->listManagementWebproperties($firstAccountId);
+
+    if (count($properties->getItems()) > 0) {
+      $items = $properties->getItems();
+      $firstPropertyId = $items[0]->getId();
+
+      // Get the list of views (profiles) for the authorized user.
+      $profiles = $analytics->management_profiles
+          ->listManagementProfiles($firstAccountId, $firstPropertyId);
+
+      if (count($profiles->getItems()) > 0) {
+        $items = $profiles->getItems();
+
+        // Return the first view (profile) ID.
+        return $items[0]->getId();
+
+      } else {
+        throw new Exception('No views (profiles) found for this user.');
+      }
+    } else {
+      throw new Exception('No properties found for this user.');
+    }
+  } else {
+    throw new Exception('No accounts found for this user.');
+  }
+}
+
+function getResults($analytics, $profileId, $limit = 4) {
+  $optParams = [
+    'dimensions' => 'ga:pageTitle,ga:pagePath',
+    'sort' => '-ga:pageviews',
+    'max-results' => $limit + 1 //se soloca +1 por que trae el home por default
+  ];
+   $results =  $analytics->data_ga->get(
+       'ga:' . $profileId,
+       '7daysAgo',
+       'today',
+       'ga:pageviews', $optParams);
+
+
+    if(count($results->getRows()) > 0) {
+      $arraySlugs = [];
+      foreach ($results->getRows() as $item) {
+        if($item[1] !== '/'){
+          $slugArr = explode("/",$item[1]);
+          $slug = $slugArr[count($slugArr) -2];
+          array_push($arraySlugs,$slug);  
+        }
+        
+      }
+    }
+
+    return $arraySlugs;
+}
+
 
 
 ?>
