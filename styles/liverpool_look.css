@@ -110,7 +110,7 @@ aside{display:block;width:300px;margin: 0px 0 0 0;vertical-align: top;background
 /* header */
 header{z-index: 2;width: 100%;background: #fff;margin: 0 auto;position: relative;top: 0;left: 0;position: -webkit-sticky;border-bottom: 1px solid #f7f7f7;transition: .3s;}
 header .inner{position: relative;display:flex;justify-content: space-between;align-items:center;flex-wrap: nowrap;}
-header .logo{width: 150px;display: block;top: 20px;background: url(../img/logo.svg) no-repeat center left/contain;height: 70px;margin: 20px 0;justify-self: left;transition: none;}
+header .logo{width: 150px;display: block;top: 20px;background: url(../img/liverpool.svg) no-repeat center left/contain;height: 70px;margin: 20px 0;justify-self: left;transition: none;}
 header .logo img{ width:100%; height:auto;}
 header menu{display: flex;align-items: center;}
 header menu ul{ display:flex;}
@@ -690,7 +690,7 @@ main.galView{overflow:auto;padding-top: 50px;position: relative;bottom: inherit;
 header{box-shadow: 0 2px 3px 1px rgba(0,0,0,.1);}
 header menu{display:none;position: fixed;top: 50px;}
 header > .inner{width: 100%;overflow: visible;height: 50px;padding: 0;justify-content: inherit;flex-wrap: nowrap;}
-header .logo,header.fixed .logo{width: 170px;margin: 0 auto 0;position: relative;height: 50px;top: inherit;background-position: center;background-size: auto 90%;}
+header .logo,header.fixed .logo{width: 180px;margin: 0 auto 0;position: relative;height: 50px;top: inherit;background-position: center;background-size: auto 90%;}
 header.fixed.forGal .logo{ height:30px}
 header form .inner{height:40px;padding: 0;width: 92%;}
 

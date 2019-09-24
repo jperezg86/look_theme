@@ -1,10 +1,10 @@
 		 <footer>
 		    	<section class="inner">
 		            <section class="social_links">
-		                <a href="https://www.facebook.com/lookbyliverpool/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		               <!--  <a href="https://www.facebook.com/lookbyliverpool/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		                <a href="https://www.instagram.com/liverpool_mexico/" target="_blank"><i class="fab fa-instagram"></i></a>
 		                <a href="https://www.pinterest.com.mx/liverpoolmexico/" target="_blank"><i class="fab fa-pinterest"></i></a>
-		                <a href="https://twitter.com/LiverpoolMexico" target="_blank"><i class="fab fa-twitter"></i></a>
+		                <a href="https://twitter.com/LiverpoolMexico" target="_blank"><i class="fab fa-twitter"></i></a> -->
 		            </section>
 
 
@@ -12,7 +12,7 @@
 		            <section class="logo">
 
 		                <a href="#">
-		                		<img src="<?= get_template_directory_uri() ?>/img/logo.svg" alt="Liverpool">
+		                		<img src="<?= get_template_directory_uri() ?>/img/liverpool.svg" alt="Liverpool"/>
 		                </a>
 
 		                <?php
@@ -56,7 +56,7 @@
 			if(!$isAMP){
 		?>
 			<!-- analytics google -->
-	        <script>
+	       <!--  <script>
 			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -65,7 +65,7 @@
 			  ga('create', 'UA-133903684-1', 'auto');
 			  ga('send', 'pageview');
 			
-		</script>
+		</script> -->
 		<?php } ?>
 
 
@@ -77,7 +77,7 @@
 					<img src="<?= get_template_directory_uri(); ?>/img/lightimg_news.jpg" alt="Suscríbete">
 				</figure>
 				<div>
-					<img src="<?= get_template_directory_uri(); ?>/img/logo.svg" alt="Logo">
+					<!-- <img src="<?= get_template_directory_uri(); ?>/img/logo.svg" alt="Logo"> -->
 					<p>
 						Historias increíbles directo a tu <strong>e-mail</strong>
 					</p>
